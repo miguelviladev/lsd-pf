@@ -21,6 +21,10 @@ ARCHITECTURE Structural OF FiltroMediaMovel IS
 	
 	-- Call signals
 	SIGNAL s_Reset : STD_LOGIC := '0';
+	
+	-- Data signals
+	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL s_NoisyData : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
 	-- Pulse generation
 	Hz2Lane : ENTITY work.PulseGenerator(Behavioral)
@@ -73,7 +77,23 @@ BEGIN
 			clock => CLOCK_50,
 			enable => s_2HzLane,
 			reset => s_Reset,
-			address => LEDG(7 DOWNTO 0)
+			address => s_Address
+		);
+		
+	-- ROM reading
+	NoisyROM : ENTITY work.NoisyTriangSignalROM256x8(Behavioral)
+		PORT MAP(
+			address => s_Address,
+			dataOut => s_NoisyData
+		);
+		
+	RomDisplay : ENTITY work.DataDisplayManager(Behavioral)
+		PORT MAP(
+			dataIn => s_NoisyData,
+			signalDisplay => HEX3,
+			hundredsDisplay => HEX2,
+			dozensDisplay => HEX1,
+			unitsDisplay => HEX0
 		);
 	
 END Structural;

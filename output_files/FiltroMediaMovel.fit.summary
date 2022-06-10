@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Jun  9 18:24:32 2022
+Fitter Status : Successful - Fri Jun 10 18:28:46 2022
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : FiltroMediaMovel
 Top-level Entity Name : FiltroMediaMovel
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 54 / 114,480 ( < 1 % )
-    Total combinational functions : 53 / 114,480 ( < 1 % )
+Total logic elements : 507 / 114,480 ( < 1 % )
+    Total combinational functions : 506 / 114,480 ( < 1 % )
     Dedicated logic registers : 34 / 114,480 ( < 1 % )
 Total registers : 34
 Total pins : 69 / 529 ( 13 % )
