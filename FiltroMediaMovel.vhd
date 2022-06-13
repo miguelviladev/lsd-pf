@@ -67,7 +67,7 @@ BEGIN
 			dataOut => s_NoisyData
 		);
 		
-	RomDisplay : ENTITY work.DataDisplayManager(Behavioral)
+	RomDisplay : ENTITY work.DataDisplayManager(Structural)
 		PORT MAP(
 			dataIn => s_NoisyData,
 			signalDisplay => HEX3,
@@ -86,7 +86,7 @@ BEGIN
 			dataOut => s_CleanDataDisplay
 		);
 
-	RamDisplay : ENTITY work.DataDisplayManager(Behavioral)
+	RamDisplay : ENTITY work.DataDisplayManager(Structural)
 		PORT MAP(
 			dataIn => s_CleanDataDisplay,
 			signalDisplay => HEX7,

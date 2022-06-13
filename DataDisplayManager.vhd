@@ -1,19 +1,19 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY DataDisplayManager IS
 	PORT (
 		dataIn : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-		unitsDisplay, dozensDisplay, hundredsDisplay, signalDisplay : OUT STD_LOGIC_VECTOR(6 DOWNTO 0));
+		unitsDisplay, dozensDisplay, hundredsDisplay, signalDisplay : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+	);
 END DataDisplayManager;
 
-ARCHITECTURE behavioral OF DataDisplayManager IS
+ARCHITECTURE Structural OF DataDisplayManager IS
 	SIGNAL s_DataIn : unsigned(7 DOWNTO 0);
 	SIGNAL s_UnitsBCD, s_DozensBCD, s_HundredsBCD, s_SIGNAL : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
-	PROCESS (dataIn)
-	BEGIN
+	DigitSeparation : PROCESS (dataIn) BEGIN
 		s_DataIn <= unsigned(STD_LOGIC_VECTOR(ABS(signed(dataIn))));
 		IF (dataIn(7) = '1') THEN
 			s_SIGNAL <= "1010";
@@ -28,20 +28,24 @@ BEGIN
 	signalDisplayProc : ENTITY work.Bin7SegDec(Behavioral)
 		PORT MAP(
 			dataIn => s_Signal,
-			dataOut => signalDisplay);
+			dataOut => signalDisplay
+		);
 
 	unitsDisplayProc : ENTITY work.Bin7SegDec(Behavioral)
 		PORT MAP(
 			dataIn => s_UnitsBCD,
-			dataOut => unitsDisplay);
+			dataOut => unitsDisplay
+		);
 
 	dozensDisplayProc : ENTITY work.Bin7SegDec(Behavioral)
 		PORT MAP(
 			dataIn => s_DozensBCD,
-			dataOut => dozensDisplay);
+			dataOut => dozensDisplay
+		);
 
 	hundredsDisplayProc : ENTITY work.Bin7SegDec(Behavioral)
 		PORT MAP(
 			dataIn => s_HundredsBCD,
-			dataOut => hundredsDisplay);
-END behavioral;
+			dataOut => hundredsDisplay
+		);
+END Structural;

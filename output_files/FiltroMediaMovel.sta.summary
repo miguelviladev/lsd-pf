@@ -3,75 +3,39 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -3.798
-TNS   : -168.283
-
-Type  : Slow 1200mV 85C Model Setup 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.210
-TNS   : 0.000
+Slack : -0.676
+TNS   : -2.026
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.386
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Hold 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.445
+Slack : 0.472
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -88.302
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : -1.285
-TNS   : -1.285
+TNS   : -21.482
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.423
-TNS   : -148.757
-
-Type  : Slow 1200mV 0C Model Setup 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.297
-TNS   : 0.000
+Slack : -0.522
+TNS   : -1.566
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.359
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.398
+Slack : 0.434
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -88.126
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : -1.285
-TNS   : -1.285
+TNS   : -21.306
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.314
-TNS   : -55.011
-
-Type  : Fast 1200mV 0C Model Setup 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.626
+Slack : 0.164
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.160
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : 0.208
+Slack : 0.210
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -69.533
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_pulsedOut'
-Slack : -1.000
-TNS   : -1.000
+TNS   : -13.865
 
 ------------------------------------------------------------
