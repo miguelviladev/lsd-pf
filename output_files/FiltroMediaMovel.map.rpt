@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FiltroMediaMovel
-Fri Jun 10 18:28:33 2022
+Mon Jun 13 22:38:22 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -13,25 +13,31 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Parameter Settings for User Entity Instance: PulseGenerator:Hz2Lane
- 11. Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY0
- 12. Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY1
- 13. Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY2
- 14. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div0
- 15. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod0
- 16. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div1
- 17. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod2
- 18. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
- 19. Port Connectivity Checks: "AddressGenerator:AddressGenerator"
- 20. Port Connectivity Checks: "DebounceUnit:DebounceKEY2"
- 21. Port Connectivity Checks: "DebounceUnit:DebounceKEY1"
- 22. Port Connectivity Checks: "DebounceUnit:DebounceKEY0"
- 23. Port Connectivity Checks: "PulseGenerator:Hz2Lane"
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Registers Added for RAM Pass-Through Logic
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated
+ 15. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0
+ 16. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1
+ 17. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2
+ 18. Parameter Settings for Inferred Entity Instance: CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0
+ 19. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div0
+ 20. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod0
+ 21. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div1
+ 22. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod2
+ 23. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div0
+ 24. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod0
+ 25. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div1
+ 26. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod2
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
+ 29. Port Connectivity Checks: "CleanInputManager:InputCleaner"
+ 30. Post-Synthesis Netlist Statistics for Top Partition
+ 31. Elapsed Time Per Partition
+ 32. Analysis & Synthesis Messages
 
 
 
@@ -58,18 +64,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 10 18:28:33 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 13 22:38:22 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 506                                         ;
-;     Total combinational functions  ; 506                                         ;
-;     Dedicated logic registers      ; 34                                          ;
-; Total registers                    ; 34                                          ;
+; Total logic elements               ; 421                                         ;
+;     Total combinational functions  ; 413                                         ;
+;     Dedicated logic registers      ; 59                                          ;
+; Total registers                    ; 59                                          ;
 ; Total pins                         ; 69                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
+; Total memory bits                  ; 16                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
@@ -178,66 +184,78 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                     ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
-; FiltroMediaMovel.vhd             ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd                                 ;         ;
-; PulseGenerator.vhd               ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/PulseGenerator.vhd                                   ;         ;
-; DebounceUnit.vhd                 ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/DebounceUnit.vhd                                     ;         ;
-; AddressGenerator.vhd             ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/AddressGenerator.vhd                                 ;         ;
-; NoisyTriangSignalROM256x8.vhd    ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/NoisyTriangSignalROM256x8.vhd                        ;         ;
-; DataDisplayManager.vhd           ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/DataDisplayManager.vhd                               ;         ;
-; Bin7SegDec.vhd                   ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/Bin7SegDec.vhd                                       ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
-; aglobal191.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc      ;         ;
-; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_mhm.tdf                                ;         ;
-; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_ekh.tdf                           ;         ;
-; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_g4f.tdf                                 ;         ;
-; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/add_sub_7pc.tdf                                   ;         ;
-; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/add_sub_8pc.tdf                                   ;         ;
-; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_q9m.tdf                                ;         ;
-; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_fkh.tdf                           ;         ;
-; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_i4f.tdf                                 ;         ;
-; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_jhm.tdf                                ;         ;
-; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_bkh.tdf                           ;         ;
-; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_a4f.tdf                                 ;         ;
-+----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; FiltroMediaMovel.vhd             ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd                                   ;         ;
+; PulseGenerator.vhd               ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/PulseGenerator.vhd                                     ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/DebounceUnit.vhd                                       ;         ;
+; AddressGenerator.vhd             ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/AddressGenerator.vhd                                   ;         ;
+; NoisyTriangSignalROM256x8.vhd    ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/NoisyTriangSignalROM256x8.vhd                          ;         ;
+; CleanTriangSignalRAM256x8.vhd    ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/CleanTriangSignalRAM256x8.vhd                          ;         ;
+; DataDisplayManager.vhd           ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/DataDisplayManager.vhd                                 ;         ;
+; Bin7SegDec.vhd                   ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/Bin7SegDec.vhd                                         ;         ;
+; CleanInputManager.vhd            ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/CleanInputManager.vhd                                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_idc1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/altsyncram_idc1.tdf                                 ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_mhm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_mhm.tdf                                  ;         ;
+; db/sign_div_unsign_ekh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_ekh.tdf                             ;         ;
+; db/alt_u_div_g4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_g4f.tdf                                   ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/add_sub_7pc.tdf                                     ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/add_sub_8pc.tdf                                     ;         ;
+; db/lpm_divide_q9m.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_q9m.tdf                                  ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_fkh.tdf                             ;         ;
+; db/alt_u_div_i4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_i4f.tdf                                   ;         ;
+; db/lpm_divide_jhm.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/lpm_divide_jhm.tdf                                  ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/sign_div_unsign_bkh.tdf                             ;         ;
+; db/alt_u_div_a4f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/maomv/repo/lsd-pf/db/alt_u_div_a4f.tdf                                   ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                                  ;
-+---------------------------------------------+------------------------------------------------+
-; Resource                                    ; Usage                                          ;
-+---------------------------------------------+------------------------------------------------+
-; Estimated Total logic elements              ; 506                                            ;
-;                                             ;                                                ;
-; Total combinational functions               ; 506                                            ;
-; Logic element usage by number of LUT inputs ;                                                ;
-;     -- 4 input functions                    ; 270                                            ;
-;     -- 3 input functions                    ; 78                                             ;
-;     -- <=2 input functions                  ; 158                                            ;
-;                                             ;                                                ;
-; Logic elements by mode                      ;                                                ;
-;     -- normal mode                          ; 403                                            ;
-;     -- arithmetic mode                      ; 103                                            ;
-;                                             ;                                                ;
-; Total registers                             ; 34                                             ;
-;     -- Dedicated logic registers            ; 34                                             ;
-;     -- I/O registers                        ; 0                                              ;
-;                                             ;                                                ;
-; I/O pins                                    ; 69                                             ;
-;                                             ;                                                ;
-; Embedded Multiplier 9-bit elements          ; 0                                              ;
-;                                             ;                                                ;
-; Maximum fan-out node                        ; AddressGenerator:AddressGenerator|s_address[2] ;
-; Maximum fan-out                             ; 98                                             ;
-; Total fan-out                               ; 1762                                           ;
-; Average fan-out                             ; 2.60                                           ;
-+---------------------------------------------+------------------------------------------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 421            ;
+;                                             ;                ;
+; Total combinational functions               ; 413            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 121            ;
+;     -- 3 input functions                    ; 99             ;
+;     -- <=2 input functions                  ; 193            ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 296            ;
+;     -- arithmetic mode                      ; 117            ;
+;                                             ;                ;
+; Total registers                             ; 59             ;
+;     -- Dedicated logic registers            ; 59             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 69             ;
+; Total memory bits                           ; 16             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 66             ;
+; Total fan-out                               ; 1397           ;
+; Average fan-out                             ; 2.26           ;
++---------------------------------------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -245,32 +263,85 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name               ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |FiltroMediaMovel                         ; 506 (0)             ; 34 (0)                    ; 0           ; 0            ; 0       ; 0         ; 69   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
-;    |AddressGenerator:AddressGenerator|    ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|AddressGenerator:AddressGenerator                                                                                             ; AddressGenerator          ; work         ;
-;    |DataDisplayManager:RomDisplay|        ; 269 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay                                                                                                 ; DataDisplayManager        ; work         ;
-;       |Bin7SegDec:dozensDisplayProc|      ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:hundredsDisplayProc|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:unitsDisplayProc|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
-;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
-;             |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
-;                |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
-;       |lpm_divide:Div1|                   ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_jhm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
-;                |alt_u_div_a4f:divider|    ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
-;       |lpm_divide:Mod0|                   ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;       |lpm_divide:Mod2|                   ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;    |NoisyTriangSignalROM256x8:NoisyROM|   ; 184 (184)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|NoisyTriangSignalROM256x8:NoisyROM                                                                                            ; NoisyTriangSignalROM256x8 ; work         ;
-;    |PulseGenerator:Hz2Lane|               ; 45 (45)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|PulseGenerator:Hz2Lane                                                                                                        ; PulseGenerator            ; work         ;
+; |FiltroMediaMovel                         ; 413 (2)             ; 59 (1)                    ; 16          ; 0            ; 0       ; 0         ; 69   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
+;    |CleanInputManager:InputCleaner|       ; 134 (0)             ; 53 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
+;       |DebounceUnit:DebounceKey1|         ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
+;       |DebounceUnit:DebounceKey2|         ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2                                                                      ; DebounceUnit              ; work         ;
+;    |CleanTriangSignalRAM256x8:CleanRAM|   ; 7 (7)               ; 5 (5)                     ; 16          ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM                                                                                            ; CleanTriangSignalRAM256x8 ; work         ;
+;       |altsyncram:s_Memory_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 16          ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0                                                                  ; altsyncram                ; work         ;
+;          |altsyncram_idc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16          ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated                                   ; altsyncram_idc1           ; work         ;
+;    |DataDisplayManager:RamDisplay|        ; 270 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay                                                                                                 ; DataDisplayManager        ; work         ;
+;       |Bin7SegDec:dozensDisplayProc|      ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:hundredsDisplayProc|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:unitsDisplayProc|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
+;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
+;             |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
+;                |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
+;       |lpm_divide:Div1|                   ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_jhm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
+;                |alt_u_div_a4f:divider|    ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
+;       |lpm_divide:Mod0|                   ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|  ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|    ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
+;       |lpm_divide:Mod2|                   ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|  ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider| ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|    ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                           ;
++--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None ;
++--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                   ;
++-----------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                               ; Reason for Removal                     ;
++-----------------------------------------------------------------------------+----------------------------------------+
+; PulseGenerator:Hz2Lane|pulse                                                ; Lost fanout                            ;
+; PulseGenerator:Hz2Lane|s_Cnt[0..24]                                         ; Lost fanout                            ;
+; AddressGenerator:AddressGenerator|s_address[0..7]                           ; Stuck at GND due to stuck port data_in ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[1..16,18,19,21,23] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 54                                      ;                                        ;
++-----------------------------------------------------------------------------+----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++------------------------------------------------+---------------------------+---------------------------------------------------------------------+
+; Register name                                  ; Reason for Removal        ; Registers Removed due to This Register                              ;
++------------------------------------------------+---------------------------+---------------------------------------------------------------------+
+; PulseGenerator:Hz2Lane|pulse                   ; Lost Fanouts              ; PulseGenerator:Hz2Lane|s_Cnt[16], PulseGenerator:Hz2Lane|s_Cnt[15], ;
+;                                                ;                           ; PulseGenerator:Hz2Lane|s_Cnt[14], PulseGenerator:Hz2Lane|s_Cnt[13], ;
+;                                                ;                           ; PulseGenerator:Hz2Lane|s_Cnt[12], PulseGenerator:Hz2Lane|s_Cnt[11], ;
+;                                                ;                           ; PulseGenerator:Hz2Lane|s_Cnt[10]                                    ;
+; AddressGenerator:AddressGenerator|s_address[7] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[15]        ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[6] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[13]        ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[5] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[11]        ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[4] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[9]         ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[3] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[7]         ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[2] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[5]         ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[1] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[3]         ;
+;                                                ; due to stuck port data_in ;                                                                     ;
+; AddressGenerator:AddressGenerator|s_address[0] ; Stuck at GND              ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[1]         ;
+;                                                ; due to stuck port data_in ;                                                                     ;
++------------------------------------------------+---------------------------+---------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -278,75 +349,268 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 34    ;
+; Total registers                              ; 59    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 7     ;
+; Number of registers using Clock Enable       ; 36    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
-; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[6]    ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:hundredsDisplayProc|dataOut[3] ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc|dataOut[0]   ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[5]    ;
-; 128:1              ; 2 bits    ; 170 LEs       ; 84 LEs               ; 86 LEs                 ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc|dataOut[6]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                                       ;
++--------------------------------------------------------------+---------------------------------------------------+
+; Register Name                                                ; RAM Name                                          ;
++--------------------------------------------------------------+---------------------------------------------------+
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[0]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[1]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[2]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[3]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[4]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[5]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[6]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[7]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[8]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[9]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[10] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[11] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[12] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[13] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[14] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[15] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[16] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[17] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[18] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[19] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[20] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[21] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[22] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[23] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[24] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
++--------------------------------------------------------------+---------------------------------------------------+
 
 
-+---------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: PulseGenerator:Hz2Lane ;
-+----------------+----------+-----------------------------------------+
-; Parameter Name ; Value    ; Type                                    ;
-+----------------+----------+-----------------------------------------+
-; max            ; 25000000 ; Signed Integer                          ;
-+----------------+----------+-----------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[9]                                            ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[13] ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[5]  ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]       ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[6]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc|dataOut[2]    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc|dataOut[5]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc|dataOut[0]       ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:hundredsDisplayProc|dataOut[0]    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc|dataOut[3]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[0]       ;
+; 128:1              ; 2 bits    ; 170 LEs       ; 84 LEs               ; 86 LEs                 ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc|dataOut[4]      ;
+; 128:1              ; 2 bits    ; 170 LEs       ; 84 LEs               ; 86 LEs                 ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc|dataOut[6]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Source assignments for CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                   ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
++---------------------------------+--------------------+------+------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0 ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                                                               ;
+; msecmininwidth ; 100   ; Signed Integer                                                               ;
+; inpolarity     ; '0'   ; Enumerated                                                                   ;
+; outpolarity    ; '1'   ; Enumerated                                                                   ;
++----------------+-------+------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY0 ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; khzclkfreq     ; 50000 ; Signed Integer                                ;
-; msecmininwidth ; 100   ; Signed Integer                                ;
-; inpolarity     ; '0'   ; Enumerated                                    ;
-; outpolarity    ; '1'   ; Enumerated                                    ;
-+----------------+-------+-----------------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1 ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                                                               ;
+; msecmininwidth ; 100   ; Signed Integer                                                               ;
+; inpolarity     ; '0'   ; Enumerated                                                                   ;
+; outpolarity    ; '1'   ; Enumerated                                                                   ;
++----------------+-------+------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY1 ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; khzclkfreq     ; 50000 ; Signed Integer                                ;
-; msecmininwidth ; 100   ; Signed Integer                                ;
-; inpolarity     ; '0'   ; Enumerated                                    ;
-; outpolarity    ; '1'   ; Enumerated                                    ;
-+----------------+-------+-----------------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2 ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                                                               ;
+; msecmininwidth ; 100   ; Signed Integer                                                               ;
+; inpolarity     ; '0'   ; Enumerated                                                                   ;
+; outpolarity    ; '1'   ; Enumerated                                                                   ;
++----------------+-------+------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: DebounceUnit:DebounceKEY2 ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; khzclkfreq     ; 50000 ; Signed Integer                                ;
-; msecmininwidth ; 100   ; Signed Integer                                ;
-; inpolarity     ; '0'   ; Enumerated                                    ;
-; outpolarity    ; '1'   ; Enumerated                                    ;
-+----------------+-------+-----------------------------------------------+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 8                    ; Untyped                                           ;
+; WIDTHAD_A                          ; 8                    ; Untyped                                           ;
+; NUMWORDS_A                         ; 256                  ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 8                    ; Untyped                                           ;
+; WIDTHAD_B                          ; 8                    ; Untyped                                           ;
+; NUMWORDS_B                         ; 256                  ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_idc1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                              ;
+; LPM_WIDTHD             ; 7              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_mhm ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                              ;
+; LPM_WIDTHD             ; 4              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_jhm ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod2 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_q9m ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -442,6 +706,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                         ;
++-------------------------------------------+--------------------------------------------------------------+
+; Name                                      ; Value                                                        ;
++-------------------------------------------+--------------------------------------------------------------+
+; Number of entity instances                ; 1                                                            ;
+; Entity Instance                           ; CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                    ;
+;     -- WIDTH_A                            ; 8                                                            ;
+;     -- NUMWORDS_A                         ; 256                                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                 ;
+;     -- WIDTH_B                            ; 8                                                            ;
+;     -- NUMWORDS_B                         ; 256                                                          ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                       ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                 ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                         ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                    ;
++-------------------------------------------+--------------------------------------------------------------+
+
+
 +----------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" ;
 +-----------+-------+----------+---------------------------------------------------------+
@@ -453,49 +737,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------+-------+----------+---------------------------------------------------------+
 
 
-+---------------------------------------------------------------+
-; Port Connectivity Checks: "AddressGenerator:AddressGenerator" ;
-+-------+-------+----------+------------------------------------+
-; Port  ; Type  ; Severity ; Details                            ;
-+-------+-------+----------+------------------------------------+
-; reset ; Input ; Info     ; Stuck at GND                       ;
-+-------+-------+----------+------------------------------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DebounceUnit:DebounceKEY2"                                                               ;
+; Port Connectivity Checks: "CleanInputManager:InputCleaner"                                                          ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
-; pulsedout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; cleankey0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DebounceUnit:DebounceKEY1"                                                               ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; pulsedout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "DebounceUnit:DebounceKEY0"                                                               ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; pulsedout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------+
-; Port Connectivity Checks: "PulseGenerator:Hz2Lane" ;
-+-------+-------+----------+-------------------------+
-; Port  ; Type  ; Severity ; Details                 ;
-+-------+-------+----------+-------------------------+
-; reset ; Input ; Info     ; Stuck at GND            ;
-+-------+-------+----------+-------------------------+
 
 
 +-----------------------------------------------------+
@@ -504,22 +752,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 69                          ;
-; cycloneiii_ff         ; 34                          ;
-;     ENA               ; 7                           ;
-;     plain             ; 27                          ;
-; cycloneiii_lcell_comb ; 510                         ;
-;     arith             ; 103                         ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 64                          ;
-;     normal            ; 407                         ;
+; cycloneiii_ff         ; 59                          ;
+;     ENA               ; 36                          ;
+;     plain             ; 23                          ;
+; cycloneiii_lcell_comb ; 416                         ;
+;     arith             ; 117                         ;
+;         2 data inputs ; 54                          ;
+;         3 data inputs ; 63                          ;
+;     normal            ; 299                         ;
 ;         0 data inputs ; 17                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 102                         ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 270                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 118                         ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 121                         ;
+; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 25.90                       ;
-; Average LUT depth     ; 19.58                       ;
+; Max LUT depth         ; 21.90                       ;
+; Average LUT depth     ; 13.30                       ;
 +-----------------------+-----------------------------+
 
 
@@ -528,7 +777,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -538,16 +787,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Fri Jun 10 18:28:22 2022
+    Info: Processing started: Mon Jun 13 22:38:11 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FiltroMediaMovel -c FiltroMediaMovel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file FiltroMediaMovel.vhd
-    Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 15
+    Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 16
     Info (12023): Found entity 1: FiltroMediaMovel File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file PulseGenerator.vhd
-    Info (12022): Found design unit 1: PulseGenerator-Behavioral File: /home/maomv/repo/lsd-pf/PulseGenerator.vhd Line: 15
-    Info (12023): Found entity 1: PulseGenerator File: /home/maomv/repo/lsd-pf/PulseGenerator.vhd Line: 7
+    Info (12022): Found design unit 1: PulseGenerator-Behavioral File: /home/maomv/repo/lsd-pf/PulseGenerator.vhd Line: 12
+    Info (12023): Found entity 1: PulseGenerator File: /home/maomv/repo/lsd-pf/PulseGenerator.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file DebounceUnit.vhd
     Info (12022): Found design unit 1: DebounceUnit-Behavioral File: /home/maomv/repo/lsd-pf/DebounceUnit.vhd Line: 16
     Info (12023): Found entity 1: DebounceUnit File: /home/maomv/repo/lsd-pf/DebounceUnit.vhd Line: 5
@@ -558,7 +807,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file NoisyTr
     Info (12022): Found design unit 1: NoisyTriangSignalROM256x8-Behavioral File: /home/maomv/repo/lsd-pf/NoisyTriangSignalROM256x8.vhd Line: 10
     Info (12023): Found entity 1: NoisyTriangSignalROM256x8 File: /home/maomv/repo/lsd-pf/NoisyTriangSignalROM256x8.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file CleanTriangSignalRAM256x8.vhd
-    Info (12022): Found design unit 1: CleanTriangSignalRAM256x8-Behavioral File: /home/maomv/repo/lsd-pf/CleanTriangSignalRAM256x8.vhd Line: 13
+    Info (12022): Found design unit 1: CleanTriangSignalRAM256x8-Behavioral File: /home/maomv/repo/lsd-pf/CleanTriangSignalRAM256x8.vhd Line: 14
     Info (12023): Found entity 1: CleanTriangSignalRAM256x8 File: /home/maomv/repo/lsd-pf/CleanTriangSignalRAM256x8.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file DataDisplayManager.vhd
     Info (12022): Found design unit 1: DataDisplayManager-behavioral File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 11
@@ -566,33 +815,73 @@ Info (12021): Found 2 design units, including 1 entities, in source file DataDis
 Info (12021): Found 2 design units, including 1 entities, in source file Bin7SegDec.vhd
     Info (12022): Found design unit 1: Bin7SegDec-Behavioral File: /home/maomv/repo/lsd-pf/Bin7SegDec.vhd Line: 10
     Info (12023): Found entity 1: Bin7SegDec File: /home/maomv/repo/lsd-pf/Bin7SegDec.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ControlUnit.vhd
+    Info (12022): Found design unit 1: ControlUnit-Behavioral File: /home/maomv/repo/lsd-pf/ControlUnit.vhd Line: 13
+    Info (12023): Found entity 1: ControlUnit File: /home/maomv/repo/lsd-pf/ControlUnit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file CleanInputManager.vhd
+    Info (12022): Found design unit 1: CleanInputManager-Structural File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 14
+    Info (12023): Found entity 1: CleanInputManager File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 4
 Info (12127): Elaborating entity "FiltroMediaMovel" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(10): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(10): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(10): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(10): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(12): used implicit default value for signal "LEDG" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(20): object "s_Key0" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 20
-Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(20): object "s_Key1" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 20
-Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(20): object "s_Key2" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 20
-Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(20): object "s_Swi0" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 20
-Warning (10540): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(23): used explicit default value for signal "s_Reset" because signal was never assigned a value File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 23
-Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 30
-Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:DebounceKEY0" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 43
-Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 75
-Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 84
-Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 90
+Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(21): object "s_Key0" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 21
+Warning (10541): VHDL Signal Declaration warning at FiltroMediaMovel.vhd(24): used implicit default value for signal "s_GlobalReset" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 24
+Warning (10873): Using initial value X (don't care) for net "LEDG[7..4]" at FiltroMediaMovel.vhd(10) File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
+Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 33
+Info (12129): Elaborating entity "CleanInputManager" using architecture "A:structural" for hierarchy "CleanInputManager:InputCleaner" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 41
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0" File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 24
+Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 66
+Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 75
+Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 81
 Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(23): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
 Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(24): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
 Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(25): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
 Info (12129): Elaborating entity "Bin7SegDec" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 28
-Info (278001): Inferred 4 megafunctions from design logic
+Info (12129): Elaborating entity "CleanTriangSignalRAM256x8" using architecture "A:behavioral" for hierarchy "CleanTriangSignalRAM256x8:CleanRAM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 91
+Warning (276020): Inferred RAM node "CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 8
+        Info (286033): Parameter NUMWORDS_B set to 256
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 8 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RamDisplay|Div0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RamDisplay|Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RamDisplay|Div1" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RamDisplay|Mod2" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Div0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Div1" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Mod2" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
-Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Div0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
-Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Div0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
+Info (12130): Elaborated megafunction instantiation "CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0"
+Info (12133): Instantiated megafunction "CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "8"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTH_B" = "8"
+    Info (12134): Parameter "WIDTHAD_B" = "8"
+    Info (12134): Parameter "NUMWORDS_B" = "256"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_idc1.tdf
+    Info (12023): Found entity 1: altsyncram_idc1 File: /home/maomv/repo/lsd-pf/db/altsyncram_idc1.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RamDisplay|lpm_divide:Div0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
+Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divide:Div0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -607,8 +896,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/add_
     Info (12023): Found entity 1: add_sub_7pc File: /home/maomv/repo/lsd-pf/db/add_sub_7pc.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
     Info (12023): Found entity 1: add_sub_8pc File: /home/maomv/repo/lsd-pf/db/add_sub_8pc.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
-Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Mod0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RamDisplay|lpm_divide:Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divide:Mod0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -619,8 +908,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_fkh File: /home/maomv/repo/lsd-pf/db/sign_div_unsign_fkh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_i4f.tdf
     Info (12023): Found entity 1: alt_u_div_i4f File: /home/maomv/repo/lsd-pf/db/alt_u_div_i4f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Div1" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
-Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Div1" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RamDisplay|lpm_divide:Div1" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divide:Div1" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -631,73 +920,81 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_bkh File: /home/maomv/repo/lsd-pf/db/sign_div_unsign_bkh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_a4f.tdf
     Info (12023): Found entity 1: alt_u_div_a4f File: /home/maomv/repo/lsd-pf/db/alt_u_div_a4f.tdf Line: 27
-Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Mod2" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
-Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Mod2" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RamDisplay|lpm_divide:Mod2" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
+Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divide:Mod2" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Div0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
+Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Div0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "DataDisplayManager:RomDisplay|lpm_divide:Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
+Info (12133): Instantiated megafunction "DataDisplayManager:RomDisplay|lpm_divide:Mod0" with the following parameter: File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (12134): Parameter "LPM_WIDTHN" = "8"
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX7[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX6[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
+    Warning (13410): Pin "HEX7[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX7[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX7[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX7[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX7[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX7[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX6[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX1[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
+Info (17036): Removed 7 MSB VCC or GND address nodes from RAM block "CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated|ALTSYNCRAM" File: /home/maomv/repo/lsd-pf/db/altsyncram_idc1.tdf Line: 248
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[0]" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 8
-    Warning (15610): No output dependent on input pin "SW[0]" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 9
-Info (21057): Implemented 576 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 498 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 507 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 64 warnings
-    Info: Peak virtual memory: 960 megabytes
-    Info: Processing ended: Fri Jun 10 18:28:33 2022
+    Info (21061): Implemented 421 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 970 megabytes
+    Info: Processing ended: Mon Jun 13 22:38:22 2022
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -4,87 +4,115 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "HEX3[6]",
+					"name" : "LEDG[0]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX2[0]",
+					"name" : "LEDG[1]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX2[2]",
+					"name" : "LEDG[2]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX2[3]",
+					"name" : "LEDG[3]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX2[4]",
+					"name" : "HEX7[6]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX2[5]",
+					"name" : "HEX6[0]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[0]",
+					"name" : "HEX6[2]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[1]",
+					"name" : "HEX6[3]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[2]",
+					"name" : "HEX6[4]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[3]",
+					"name" : "HEX6[5]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[4]",
+					"name" : "HEX5[0]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[5]",
+					"name" : "HEX5[1]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX1[6]",
+					"name" : "HEX5[2]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[0]",
+					"name" : "HEX5[3]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[1]",
+					"name" : "HEX5[4]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[2]",
+					"name" : "HEX5[5]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[3]",
+					"name" : "HEX5[6]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[4]",
+					"name" : "HEX4[0]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[5]",
+					"name" : "HEX4[1]",
 					"strict" : false
 				},
 				{
-					"name" : "HEX0[6]",
+					"name" : "HEX4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[6]",
 					"strict" : false
 				},
 				{
 					"name" : "CLOCK_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[2]",
 					"strict" : false
 				}
 			]

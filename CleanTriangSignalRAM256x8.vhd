@@ -1,31 +1,32 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.NUMERIC_STD.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL;
 
-entity CleanTriangSignalRAM256x8 is
-	port(writeEnable : in std_logic;
-		  clock		  : in std_logic;
-		  writeData	  : in std_logic_vector(7 downto 0);
-		  address	  : in std_logic_vector(7 downto 0);
-		  dataOut	  : out std_logic_vector(7 downto 0));
-end CleanTriangSignalRAM256x8;
+ENTITY CleanTriangSignalRAM256x8 IS
+	PORT (
+		writeEnable : IN STD_LOGIC;
+		clock : IN STD_LOGIC;
+		writeData : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		address : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		dataOut : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+END CleanTriangSignalRAM256x8;
 
-architecture Behavioral of CleanTriangSignalRAM256x8 is
-	constant NUM_WORDS : integer := 256;
-	constant WORD_SIZE : integer := 8;
-	
-	subtype TDataWord is std_logic_vector(WORD_SIZE - 1 downto 0);
-	type TMemory is array (0 to NUM_WORDS - 1) of TDataWord;
-	signal s_memory: TMemory;
-	
-begin
-	process(clock)
-	begin
-		if (rising_edge(clock)) then
-			if (writeEnable = '1') then
-				s_memory(to_integer(unsigned(address))) <= writeData;
-			end if;
-		end if;
-	end process;
-	dataOut <= s_memory(to_integer(unsigned(address)));
-end Behavioral;
+ARCHITECTURE Behavioral OF CleanTriangSignalRAM256x8 IS
+	CONSTANT NUM_WORDS : INTEGER := 256;
+	CONSTANT WORD_SIZE : INTEGER := 8;
+
+	SUBTYPE TDataWord IS STD_LOGIC_VECTOR(WORD_SIZE - 1 DOWNTO 0);
+	TYPE TMemory IS ARRAY (0 TO NUM_WORDS - 1) OF TDataWord;
+	SIGNAL s_Memory : TMemory;
+
+BEGIN
+	PROCESS (clock)
+	BEGIN
+		IF (rising_edge(clock)) THEN
+			IF (writeEnable = '1') THEN
+				s_Memory(to_integer(unsigned(address))) <= writeData;
+			END IF;
+		END IF;
+	END PROCESS;
+	dataOut <= s_Memory(to_integer(unsigned(address)));
+END Behavioral;
