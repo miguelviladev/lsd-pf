@@ -15,7 +15,7 @@ ENTITY ControlUnit IS
         callGlobalReset, callRamReset, callStartStop, callToggleFilter : OUT STD_LOGIC;
 
         -- Display current state
-        debugStateVector : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+        debugStateVector : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
     );
 END ControlUnit;
 
@@ -33,7 +33,7 @@ ARCHITECTURE Behavioral OF ControlUnit IS
     SIGNAL s_ChangedState : STD_LOGIC := '1';
     SIGNAL s_DelayStop : STD_LOGIC := '0';
 BEGIN
-    LISTENER : PROCESS (clock) BEGIN
+    Listener : PROCESS (clock) BEGIN
         IF (rising_edge(clock)) THEN
             IF (globalReset = '1') THEN
                 s_ChangedState <= '1';
@@ -57,17 +57,19 @@ BEGIN
         END IF;
     END PROCESS;
 
-    STATEFLOW : PROCESS (globalReset, ramReset, startStop, toggleFilter) BEGIN
+    StateFlow : PROCESS (globalReset, ramReset, startStop, toggleFilter) BEGIN
         CASE (currState) IS
             WHEN t_BOOT =>
                 callGlobalReset <= '0';
                 callRamReset <= '0';
                 callStartStop <= '0';
                 nextState <= t_GLOBALRESET;
+                debugStateVector <= "00001";
             WHEN t_GLOBALRESET =>
                 callGlobalReset <= '1';
                 callRamReset <= '0';
                 callStartStop <= '0';
+                debugStateVector <= "00010";
                 IF (s_DelayStop = '1') THEN
                     nextState <= t_RAMRESET;
                 ELSE
@@ -77,6 +79,7 @@ BEGIN
                 callGlobalReset <= '0';
                 callRamReset <= '1';
                 callStartStop <= '0';
+                debugStateVector <= "00100";
                 IF (s_DelayStop = '1') THEN
                     nextState <= t_STOPPED;
                 ELSE
@@ -86,6 +89,7 @@ BEGIN
                 callGlobalReset <= '0';
                 callRamReset <= '0';
                 callStartStop <= '1';
+                debugStateVector <= "01000";
                 IF (startStop = '1') THEN
                     nextState <= t_STOPPED;
                 ELSE
@@ -95,6 +99,7 @@ BEGIN
                 callGlobalReset <= '0';
                 callRamReset <= '0';
                 callStartStop <= '0';
+                debugStateVector <= "10000";
                 IF (startStop = '1') THEN
                     nextState <= t_RUNNING;
                 ELSE

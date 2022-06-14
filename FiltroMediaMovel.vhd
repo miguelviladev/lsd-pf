@@ -21,8 +21,7 @@ ARCHITECTURE Structural OF FiltroMediaMovel IS
 	SIGNAL s_Key0, s_Key1, s_Key2, s_Swi0 : STD_LOGIC;
 	
 	-- Call and control signals
-	SIGNAL s_GlobalReset, s_RamReset, s_Running, s_FilterOn : STD_LOGIC;
-	SIGNAL state : STD_LOGIC := '0';
+	SIGNAL s_CallGlobalReset, s_CallRamReset, s_CallRunning, s_CallFilterOn : STD_LOGIC;
 	-- Data signals
 	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL s_NoisyData : STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -93,5 +92,19 @@ BEGIN
 			hundredsDisplay => HEX6,
 			dozensDisplay => HEX5,
 			unitsDisplay => HEX4
+		);
+
+	-- State controller
+	StateController : ENTITY.ControlUnit(Behavioral)
+		PORT MAP(
+			-- Control signals
+			clock => CLOCK_50,
+			-- User inputs
+			globalReset => s_Key2,
+			ramReset => s_Key1,
+			startStop => s_Key0,
+			toggleFilter => s_Swi0,
+			-- Debug state
+			debugStateVector => LEDG(4 DOWNTO 0)
 		);
 END Structural;
