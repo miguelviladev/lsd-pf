@@ -21,7 +21,12 @@ ARCHITECTURE Structural OF FiltroMediaMovel IS
 	SIGNAL s_Key0, s_Key1, s_Key2, s_Swi0 : STD_LOGIC;
 	
 	-- Call and control signals
-	SIGNAL s_CallGlobalReset, s_CallRamReset, s_CallRunning, s_CallFilterOn : STD_LOGIC;
+	SIGNAL s_GlobalReset, s_RamReset, s_Running, s_FilterOn : STD_LOGIC;
+	
+	-- Ram manager signals
+	SIGNAL s_RamManWriteEnable : STD_LOGIC;
+	SIGNAL s_RamManAddress, s_RamManData : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	
 	-- Data signals
 	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL s_NoisyData : STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -32,6 +37,7 @@ BEGIN
 	Hz2Lane : ENTITY work.PulseGenerator(Behavioral)
 		PORT MAP(
 			clock => CLOCK_50,
+			startStop => s_Running,
 			reset => s_GlobalReset,
 			pulse => s_2HzLane
 		);
@@ -76,12 +82,24 @@ BEGIN
 		);
 
 	-- RAM reading and writing
+	RamManagment : ENTITY work.RamManager(Behavioral)
+		PORT MAP(
+			clock => CLOCK_50,
+			reset => s_RamReset,
+			inWriteEnable => s_Swi0, --TODO
+			inAddress => s_Address,
+			inData => s_NoisyData, --TODO
+			outWriteEnable => s_RamManWriteEnable,
+			outAddress => s_RamManAddress,
+			outData => s_RamManData
+		);
+	
 	CleanRAM : ENTITY work.CleanTriangSignalRAM256x8(Behavioral)
 		PORT MAP(
 			clock => CLOCK_50,
-			writeEnable => s_Swi0,     -- TODO
-			writeData => s_NoisyData,  -- TODO
-			address => s_Address,
+			writeEnable => s_RamManWriteEnable,
+			writeData => s_RamManData,
+			address => s_RamManAddress,
 			dataOut => s_CleanDataDisplay
 		);
 
@@ -95,7 +113,7 @@ BEGIN
 		);
 
 	-- State controller
-	StateController : ENTITY.ControlUnit(Behavioral)
+	StateController : ENTITY work.ControlUnit(Behavioral)
 		PORT MAP(
 			-- Control signals
 			clock => CLOCK_50,
@@ -104,6 +122,11 @@ BEGIN
 			ramReset => s_Key1,
 			startStop => s_Key0,
 			toggleFilter => s_Swi0,
+			-- Outputs
+			callGlobalReset => s_GlobalReset,
+			callRamReset => s_RamReset,
+			callSTartStop => s_Running,
+			callToggleFilter => s_FilterOn,
 			-- Debug state
 			debugStateVector => LEDG(4 DOWNTO 0)
 		);

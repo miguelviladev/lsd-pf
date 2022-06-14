@@ -1,0 +1,16 @@
+
+State Machine - |FiltroMediaMovel|ControlUnit:StateController|keepRunningState
+Name keepRunningState.t_STOPPED keepRunningState.t_RUNNING keepRunningState.t_GLOBALRESET keepRunningState.t_RAMRESET keepRunningState.t_BOOT 
+keepRunningState.t_BOOT 0 0 0 0 0 
+keepRunningState.t_RAMRESET 0 0 0 1 1 
+keepRunningState.t_GLOBALRESET 0 0 1 0 1 
+keepRunningState.t_RUNNING 0 1 0 0 1 
+keepRunningState.t_STOPPED 1 0 0 0 1 
+
+State Machine - |FiltroMediaMovel|ControlUnit:StateController|currState
+Name currState.t_STOPPED currState.t_RUNNING currState.t_GLOBALRESET currState.t_RAMRESET currState.t_BOOT 
+currState.t_BOOT 0 0 0 0 0 
+currState.t_RAMRESET 0 0 0 1 1 
+currState.t_GLOBALRESET 0 0 1 0 1 
+currState.t_RUNNING 0 1 0 0 1 
+currState.t_STOPPED 1 0 0 0 1 

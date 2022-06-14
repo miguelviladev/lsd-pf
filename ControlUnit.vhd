@@ -5,15 +5,9 @@ USE IEEE.NUMERIC_STD.ALL;
 ENTITY ControlUnit IS
     PORT (
         clock : IN STD_LOGIC;
-
-        -- Control reset signals delay
-        delayStop : IN STD_LOGIC;
-        delayStart : OUT STD_LOGIC;
-
         -- Get and send control calls
         globalReset, ramReset, startStop, toggleFilter : IN STD_LOGIC;
         callGlobalReset, callRamReset, callStartStop, callToggleFilter : OUT STD_LOGIC;
-
         -- Display current state
         debugStateVector : OUT STD_LOGIC_VECTOR(4 DOWNTO 0)
     );
@@ -27,90 +21,92 @@ ARCHITECTURE Behavioral OF ControlUnit IS
         t_RUNNING,
         t_STOPPED
     );
-    SIGNAL nextState, currState : stateType := t_BOOT;
-
-    -- Signals for controlling reset delyer
-    SIGNAL s_ChangedState : STD_LOGIC := '1';
-    SIGNAL s_DelayStop : STD_LOGIC := '0';
+    SIGNAL keepRunningState, currState : stateType := t_BOOT;
+    SIGNAL cycleDelay : INTEGER := 0;
+	CONSTANT cycleDelayTarget : INTEGER := 256;
+    SIGNAL firstExec : STD_LOGIC := '1';
 BEGIN
-    Listener : PROCESS (clock) BEGIN
+    callToggleFilter <= toggleFilter;
+
+    StateFlow : PROCESS (clock) BEGIN
         IF (rising_edge(clock)) THEN
-            IF (globalReset = '1') THEN
-                s_ChangedState <= '1';
-                nextState <= t_BOOT;
-            ELSIF (ramReset = '1') THEN
-                s_ChangedState <= '1';
+			IF (globalReset = '1') THEN
+                cycleDelay <= 0;
+				currState <= t_BOOT;
+			ELSIF (ramReset = '1') THEN
+                cycleDelay <= 0;
+                keepRunningState <= currState;
                 currState <= t_RAMRESET;
-            ELSE
-                IF (currState = nextState) THEN
-                    s_ChangedState <= '0';
-                ELSE
-                    s_ChangedState <= '1';
-                    IF (currState = t_RAMRESET) THEN
+			ELSE
+                CASE (currState) IS
+                    WHEN t_BOOT =>
+                        callGlobalReset <= '0';
                         callRamReset <= '0';
-                    ELSE
+                        callStartStop <= '0';
+                        currState <= t_GLOBALRESET;
+                        debugStateVector <= "00001";
+                    
+                    WHEN t_GLOBALRESET =>
+                        callGlobalReset <= '1';
+                        callRamReset <= '0';
+                        callStartStop <= '0';
+                        debugStateVector <= "00010";
+                        IF (cycleDelay < cycleDelayTarget) THEN
+                            cycleDelay <= cycleDelay + 1;
+                            currState <= t_GLOBALRESET;
+                        ELSE
+                            cycleDelay <= 0;
+                            firstExec <= '1';
+                            currState <= t_RAMRESET;
+                        END IF;
+
+                    WHEN t_RAMRESET =>
+                        callGlobalReset <= '0';
                         callRamReset <= '1';
-                    END IF;
-                END IF;
-                currState <= nextState;
-            END IF;
+                        callStartStop <= '0';
+                        debugStateVector <= "00100";
+                        IF (cycleDelay < cycleDelayTarget) THEN
+                            cycleDelay <= cycleDelay + 1;
+                            currState <= t_RAMRESET;
+                        ELSE
+                            IF (firstExec = '1') THEN
+                                firstExec <= '0';
+                                currState <= t_RUNNING;
+                            ELSE
+                                IF (keepRunningState = t_RUNNING) THEN
+                                    currState <= t_RUNNING;
+                                ELSE
+                                    currState <= t_STOPPED;
+                                END IF;
+                            END IF;
+                        END IF;
+
+                    WHEN t_RUNNING =>
+                        callGlobalReset <= '0';
+                        callRamReset <= '0';
+                        callStartStop <= '1';
+                        debugStateVector <= "01000";
+                        IF (startStop = '1') THEN
+                            currState <= t_STOPPED;
+                        ELSE
+                            currState <= t_RUNNING;
+                        END IF;
+
+                    WHEN t_STOPPED =>
+                        callGlobalReset <= '0';
+                        callRamReset <= '0';
+                        callStartStop <= '0';
+                        debugStateVector <= "10000";
+                        IF (startStop = '1') THEN
+                            currState <= t_RUNNING;
+                        ELSE
+                            currState <= t_STOPPED;
+                        END IF;
+
+                    WHEN OTHERS =>
+                        NULL;
+                END CASE;
+			END IF;
         END IF;
     END PROCESS;
-
-    StateFlow : PROCESS (globalReset, ramReset, startStop, toggleFilter) BEGIN
-        CASE (currState) IS
-            WHEN t_BOOT =>
-                callGlobalReset <= '0';
-                callRamReset <= '0';
-                callStartStop <= '0';
-                nextState <= t_GLOBALRESET;
-                debugStateVector <= "00001";
-            WHEN t_GLOBALRESET =>
-                callGlobalReset <= '1';
-                callRamReset <= '0';
-                callStartStop <= '0';
-                debugStateVector <= "00010";
-                IF (s_DelayStop = '1') THEN
-                    nextState <= t_RAMRESET;
-                ELSE
-                    nextState <= t_GLOBALRESET;
-                END IF;
-            WHEN t_RAMRESET =>
-                callGlobalReset <= '0';
-                callRamReset <= '1';
-                callStartStop <= '0';
-                debugStateVector <= "00100";
-                IF (s_DelayStop = '1') THEN
-                    nextState <= t_STOPPED;
-                ELSE
-                    nextState <= t_RAMRESET;
-                END IF;
-            WHEN t_RUNNING =>
-                callGlobalReset <= '0';
-                callRamReset <= '0';
-                callStartStop <= '1';
-                debugStateVector <= "01000";
-                IF (startStop = '1') THEN
-                    nextState <= t_STOPPED;
-                ELSE
-                    nextState <= t_RUNNING;
-                END IF;
-            WHEN t_STOPPED =>
-                callGlobalReset <= '0';
-                callRamReset <= '0';
-                callStartStop <= '0';
-                debugStateVector <= "10000";
-                IF (startStop = '1') THEN
-                    nextState <= t_RUNNING;
-                ELSE
-                    nextState <= t_STOPPED;
-                END IF;
-            WHEN OTHERS =>
-                NULL;
-        END CASE;
-    END PROCESS;
-
-    -- Signals for controlling start/stop delayer
-    delayStart <= s_ChangedState;
-    s_DelayStop <= '1' WHEN ((delayStop = '1') AND (s_ChangedState = '0')) ELSE '0';
 END Behavioral;

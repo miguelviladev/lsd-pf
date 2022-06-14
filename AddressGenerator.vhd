@@ -7,7 +7,8 @@ ENTITY AddressGenerator IS
 		clock : IN STD_LOGIC;
 		enable : IN STD_LOGIC;
 		reset : IN STD_LOGIC;
-		address : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+		address : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+	);
 END AddressGenerator;
 
 ARCHITECTURE Behavioral OF AddressGenerator IS

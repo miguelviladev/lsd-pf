@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Tue Jun 14 01:02:04 2022
+Analysis & Synthesis Status : Successful - Tue Jun 14 05:45:23 2022
 Quartus Prime Version : 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 Revision Name : FiltroMediaMovel
 Top-level Entity Name : FiltroMediaMovel
 Family : Cyclone IV E
-Total logic elements : 284
-    Total combinational functions : 278
-    Dedicated logic registers : 6
-Total registers : 6
+Total logic elements : 1,101
+    Total combinational functions : 1,065
+    Dedicated logic registers : 210
+Total registers : 210
 Total pins : 69
 Total virtual pins : 0
-Total memory bits : 16
+Total memory bits : 2,048
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
