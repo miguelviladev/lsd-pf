@@ -13,8 +13,8 @@ ARCHITECTURE Structural OF DataDisplayManager IS
 	SIGNAL s_DataIn : unsigned(7 DOWNTO 0);
 	SIGNAL s_UnitsBCD, s_DozensBCD, s_HundredsBCD, s_SIGNAL : STD_LOGIC_VECTOR(3 DOWNTO 0);
 BEGIN
-	DigitSeparation : PROCESS (dataIn) BEGIN
-		s_DataIn <= unsigned(STD_LOGIC_VECTOR(ABS(signed(dataIn))));
+	s_DataIn <= unsigned(STD_LOGIC_VECTOR(ABS(signed(dataIn))));
+	DigitSeparation : PROCESS (s_DataIn) BEGIN
 		IF (dataIn(7) = '1') THEN
 			s_SIGNAL <= "1010";
 		ELSE

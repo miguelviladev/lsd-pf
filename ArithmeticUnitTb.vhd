@@ -1,38 +1,36 @@
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY ArithmeticUnit_Tb IS
-END ArithmeticUnit_Tb;
+ENTITY ArithmeticUnitTb IS
+END ArithmeticUnitTb;
 
-ARCHITECTURE Stimulus OF ArithmeticUnit_Tb IS
-	SIGNAL s_operand0, s_operand1, s_operand2, s_operand3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL s_Result : STD_LOGIC_VECTOR(7 DOWNTO 0);
-
+ARCHITECTURE Stimulus OF ArithmeticUnitTb IS
+		SIGNAL s_Op0, s_Op1, s_Op2, s_Op3, s_Result : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
-	uut : ENTITY work.ArithmeticUnit(Behavioral)
+	UUT : ENTITY work.ArithmeticUnit(Behavioral)
 		PORT MAP(
-			operand0 => s_operand0,
-			operand1 => s_operand1,
-			operand2 => s_operand2,
-			operand3 => s_operand3,
-			Result => s_Result);
-	Result => s_Result);
+			op0 => s_Op0,
+			op1 => s_Op1,
+			op2 => s_Op2,
+			op3 => s_Op3,
+			result => s_Result
+		);
 
-stim_proc : PROCESS
-		BEGIN
+	STIMULUSPROC : PROCESS BEGIN
 		WAIT FOR 100 ns;
-		s_operand0 <= "00001010";
-		s_operand1 <= "00001010";
-		s_operand2 <= "00001010";
-		s_operand3 <= "00001010";
+		s_Op0 <= "00001010";
+		s_Op1 <= "00001010";
+		s_Op2 <= "00001010";
+		s_Op3 <= "00001010";
 		WAIT FOR 100 ns;
-		s_operand0 <= "00001010";
-		s_operand1 <= "00000101";
-		s_operand2 <= "00000100";
-		s_operand3 <= "11111001";
+		s_Op0 <= "00001010";
+		s_Op1 <= "00000101";
+		s_Op2 <= "00000100";
+		s_Op3 <= "11111001";
 		WAIT FOR 100 ns;
-		s_operand0 <= "11111011";
-		s_operand1 <= "11111001";
-		s_operand2 <= "11110110";
-	s_operand3 <= "00000001";
-		END PROCESS;
+		s_Op0 <= "11111011";
+		s_Op1 <= "11111001";
+		s_Op2 <= "11110110";
+		s_Op3 <= "00000001";
+	END PROCESS;
+END Stimulus;

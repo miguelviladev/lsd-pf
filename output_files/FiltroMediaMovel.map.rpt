@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FiltroMediaMovel
-Tue Jun 14 05:45:23 2022
+Wed Jun 15 13:43:21 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -66,15 +66,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 14 05:45:23 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 15 13:43:21 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,101                                       ;
+; Total logic elements               ; 1,099                                       ;
 ;     Total combinational functions  ; 1,065                                       ;
-;     Dedicated logic registers      ; 210                                         ;
-; Total registers                    ; 210                                         ;
+;     Dedicated logic registers      ; 208                                         ;
+; Total registers                    ; 208                                         ;
 ; Total pins                         ; 69                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048                                       ;
@@ -234,20 +234,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,101          ;
+; Estimated Total logic elements              ; 1,099          ;
 ;                                             ;                ;
 ; Total combinational functions               ; 1065           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 433            ;
+;     -- 4 input functions                    ; 434            ;
 ;     -- 3 input functions                    ; 198            ;
-;     -- <=2 input functions                  ; 434            ;
+;     -- <=2 input functions                  ; 433            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
 ;     -- normal mode                          ; 785            ;
 ;     -- arithmetic mode                      ; 280            ;
 ;                                             ;                ;
-; Total registers                             ; 210            ;
-;     -- Dedicated logic registers            ; 210            ;
+; Total registers                             ; 208            ;
+;     -- Dedicated logic registers            ; 208            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 69             ;
@@ -256,9 +256,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 218            ;
-; Total fan-out                               ; 4000           ;
-; Average fan-out                             ; 2.81           ;
+; Maximum fan-out                             ; 216            ;
+; Total fan-out                               ; 3997           ;
+; Average fan-out                             ; 2.82           ;
 +---------------------------------------------+----------------+
 
 
@@ -267,16 +267,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name               ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |FiltroMediaMovel                         ; 1065 (0)            ; 210 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 69   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
+; |FiltroMediaMovel                         ; 1065 (0)            ; 208 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 69   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
 ;    |AddressGenerator:AddressGenerator|    ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|AddressGenerator:AddressGenerator                                                                                             ; AddressGenerator          ; work         ;
-;    |CleanInputManager:InputCleaner|       ; 204 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
+;    |CleanInputManager:InputCleaner|       ; 203 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
 ;       |DebounceUnit:DebounceKey0|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0                                                                      ; DebounceUnit              ; work         ;
-;       |DebounceUnit:DebounceKey1|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
+;       |DebounceUnit:DebounceKey1|         ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
 ;       |DebounceUnit:DebounceKey2|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2                                                                      ; DebounceUnit              ; work         ;
 ;    |CleanTriangSignalRAM256x8:CleanRAM|   ; 13 (13)             ; 25 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM                                                                                            ; CleanTriangSignalRAM256x8 ; work         ;
 ;       |altsyncram:s_Memory_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0                                                                  ; altsyncram                ; work         ;
 ;          |altsyncram_idc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated                                   ; altsyncram_idc1           ; work         ;
-;    |ControlUnit:StateController|          ; 57 (57)             ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ControlUnit:StateController                                                                                                   ; ControlUnit               ; work         ;
+;    |ControlUnit:StateController|          ; 58 (58)             ; 45 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ControlUnit:StateController                                                                                                   ; ControlUnit               ; work         ;
 ;    |DataDisplayManager:RamDisplay|        ; 269 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay                                                                                                 ; DataDisplayManager        ; work         ;
 ;       |Bin7SegDec:dozensDisplayProc|      ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
 ;       |Bin7SegDec:hundredsDisplayProc|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
@@ -334,44 +334,42 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FiltroMediaMovel|ControlUnit:StateController|keepRunningState                                                                                                    ;
-+--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+-------------------------+
-; Name                           ; keepRunningState.t_STOPPED ; keepRunningState.t_RUNNING ; keepRunningState.t_GLOBALRESET ; keepRunningState.t_RAMRESET ; keepRunningState.t_BOOT ;
-+--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+-------------------------+
-; keepRunningState.t_BOOT        ; 0                          ; 0                          ; 0                              ; 0                           ; 0                       ;
-; keepRunningState.t_RAMRESET    ; 0                          ; 0                          ; 0                              ; 1                           ; 1                       ;
-; keepRunningState.t_GLOBALRESET ; 0                          ; 0                          ; 1                              ; 0                           ; 1                       ;
-; keepRunningState.t_RUNNING     ; 0                          ; 1                          ; 0                              ; 0                           ; 1                       ;
-; keepRunningState.t_STOPPED     ; 1                          ; 0                          ; 0                              ; 0                           ; 1                       ;
-+--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+-------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FiltroMediaMovel|ControlUnit:StateController|keepRunningState                                                                          ;
++--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+
+; Name                           ; keepRunningState.t_STOPPED ; keepRunningState.t_RUNNING ; keepRunningState.t_GLOBALRESET ; keepRunningState.t_RAMRESET ;
++--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+
+; keepRunningState.t_RAMRESET    ; 0                          ; 0                          ; 0                              ; 0                           ;
+; keepRunningState.t_GLOBALRESET ; 0                          ; 0                          ; 1                              ; 1                           ;
+; keepRunningState.t_RUNNING     ; 0                          ; 1                          ; 0                              ; 1                           ;
+; keepRunningState.t_STOPPED     ; 1                          ; 0                          ; 0                              ; 1                           ;
++--------------------------------+----------------------------+----------------------------+--------------------------------+-----------------------------+
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FiltroMediaMovel|ControlUnit:StateController|currState                                                                 ;
-+-------------------------+---------------------+---------------------+-------------------------+----------------------+------------------+
-; Name                    ; currState.t_STOPPED ; currState.t_RUNNING ; currState.t_GLOBALRESET ; currState.t_RAMRESET ; currState.t_BOOT ;
-+-------------------------+---------------------+---------------------+-------------------------+----------------------+------------------+
-; currState.t_BOOT        ; 0                   ; 0                   ; 0                       ; 0                    ; 0                ;
-; currState.t_RAMRESET    ; 0                   ; 0                   ; 0                       ; 1                    ; 1                ;
-; currState.t_GLOBALRESET ; 0                   ; 0                   ; 1                       ; 0                    ; 1                ;
-; currState.t_RUNNING     ; 0                   ; 1                   ; 0                       ; 0                    ; 1                ;
-; currState.t_STOPPED     ; 1                   ; 0                   ; 0                       ; 0                    ; 1                ;
-+-------------------------+---------------------+---------------------+-------------------------+----------------------+------------------+
++----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FiltroMediaMovel|ControlUnit:StateController|currState                                              ;
++-------------------------+---------------------+---------------------+----------------------+-------------------------+
+; Name                    ; currState.t_STOPPED ; currState.t_RUNNING ; currState.t_RAMRESET ; currState.t_GLOBALRESET ;
++-------------------------+---------------------+---------------------+----------------------+-------------------------+
+; currState.t_GLOBALRESET ; 0                   ; 0                   ; 0                    ; 0                       ;
+; currState.t_RAMRESET    ; 0                   ; 0                   ; 1                    ; 1                       ;
+; currState.t_RUNNING     ; 0                   ; 1                   ; 0                    ; 1                       ;
+; currState.t_STOPPED     ; 1                   ; 0                   ; 0                    ; 1                       ;
++-------------------------+---------------------+---------------------+----------------------+-------------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+------------------------------------------------------------+--------------------+
-; Register name                                              ; Reason for Removal ;
-+------------------------------------------------------------+--------------------+
-; ControlUnit:StateController|keepRunningState.t_BOOT        ; Lost fanout        ;
-; ControlUnit:StateController|keepRunningState.t_RAMRESET    ; Lost fanout        ;
-; ControlUnit:StateController|keepRunningState.t_GLOBALRESET ; Lost fanout        ;
-; ControlUnit:StateController|keepRunningState.t_STOPPED     ; Lost fanout        ;
-; Total Number of Removed Registers = 4                      ;                    ;
-+------------------------------------------------------------+--------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------------+----------------------------------------+
+; Register name                                              ; Reason for Removal                     ;
++------------------------------------------------------------+----------------------------------------+
+; ControlUnit:StateController|debugStateVector[0]            ; Stuck at GND due to stuck port data_in ;
+; ControlUnit:StateController|keepRunningState.t_RAMRESET    ; Lost fanout                            ;
+; ControlUnit:StateController|keepRunningState.t_GLOBALRESET ; Lost fanout                            ;
+; ControlUnit:StateController|keepRunningState.t_STOPPED     ; Lost fanout                            ;
+; Total Number of Removed Registers = 4                      ;                                        ;
++------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -379,12 +377,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 210   ;
+; Total registers                              ; 208   ;
 ; Number of registers using Synchronous Clear  ; 65    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 127   ;
+; Number of registers using Clock Enable       ; 128   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -438,10 +436,10 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
 ; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[0]                                            ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[15] ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[21] ;
 ; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[15] ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0|s_debounceCnt[19] ;
-; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |FiltroMediaMovel|ControlUnit:StateController|cycleDelay[6]                                  ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0|s_debounceCnt[20] ;
+; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |FiltroMediaMovel|ControlUnit:StateController|cycleDelay[5]                                  ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]       ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]       ;
 ; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc|dataOut[2]    ;
@@ -795,25 +793,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 69                          ;
-; cycloneiii_ff         ; 210                         ;
-;     ENA               ; 70                          ;
+; cycloneiii_ff         ; 208                         ;
+;     ENA               ; 71                          ;
 ;     ENA SCLR          ; 57                          ;
 ;     SCLR              ; 8                           ;
-;     plain             ; 75                          ;
+;     plain             ; 72                          ;
 ; cycloneiii_lcell_comb ; 1071                        ;
 ;     arith             ; 280                         ;
 ;         2 data inputs ; 152                         ;
 ;         3 data inputs ; 128                         ;
 ;     normal            ; 791                         ;
 ;         0 data inputs ; 32                          ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 240                         ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 238                         ;
 ;         3 data inputs ; 70                          ;
-;         4 data inputs ; 433                         ;
+;         4 data inputs ; 434                         ;
 ; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 25.90                       ;
-; Average LUT depth     ; 14.84                       ;
+; Average LUT depth     ; 14.88                       ;
 +-----------------------+-----------------------------+
 
 
@@ -822,7 +820,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -832,10 +830,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Jun 14 05:45:11 2022
+    Info: Processing started: Wed Jun 15 13:43:08 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FiltroMediaMovel -c FiltroMediaMovel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file ArithmeticUnitTb.vhd
+    Info (12022): Found design unit 1: ArithmeticUnitTb-Stimulus File: /home/maomv/repo/lsd-pf/ArithmeticUnitTb.vhd Line: 7
+    Info (12023): Found entity 1: ArithmeticUnitTb File: /home/maomv/repo/lsd-pf/ArithmeticUnitTb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ArithmeticUnit.vhd
+    Info (12022): Found design unit 1: ArithmeticUnit-Behavioral File: /home/maomv/repo/lsd-pf/ArithmeticUnit.vhd Line: 11
+    Info (12023): Found entity 1: ArithmeticUnit File: /home/maomv/repo/lsd-pf/ArithmeticUnit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FiltroMediaMovel.vhd
     Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 16
     Info (12023): Found entity 1: FiltroMediaMovel File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 5
@@ -878,9 +882,7 @@ Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral
 Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 60
 Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 69
 Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:structural" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 75
-Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(23): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 23
-Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(24): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
-Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(25): signal "s_DataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(18): signal "dataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 18
 Info (12129): Elaborating entity "Bin7SegDec" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 28
 Info (12129): Elaborating entity "RamManager" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 85
 Info (12129): Elaborating entity "CleanTriangSignalRAM256x8" using architecture "A:behavioral" for hierarchy "CleanTriangSignalRAM256x8:CleanRAM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 97
@@ -976,6 +978,7 @@ Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divid
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
@@ -996,18 +999,18 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
     Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1186 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1184 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 1109 logic cells
+    Info (21061): Implemented 1107 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 977 megabytes
-    Info: Processing ended: Tue Jun 14 05:45:23 2022
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:22
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
+    Info: Peak virtual memory: 976 megabytes
+    Info: Processing ended: Wed Jun 15 13:43:21 2022
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:23
 
 

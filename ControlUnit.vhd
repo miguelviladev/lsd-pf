@@ -15,13 +15,12 @@ END ControlUnit;
 
 ARCHITECTURE Behavioral OF ControlUnit IS
     TYPE stateType IS (
-        t_BOOT,
         t_RAMRESET,
         t_GLOBALRESET,
         t_RUNNING,
         t_STOPPED
     );
-    SIGNAL keepRunningState, currState : stateType := t_BOOT;
+    SIGNAL keepRunningState, currState : stateType := t_GLOBALRESET;
     SIGNAL cycleDelay : INTEGER := 0;
 	CONSTANT cycleDelayTarget : INTEGER := 256;
     SIGNAL firstExec : STD_LOGIC := '1';
@@ -32,20 +31,13 @@ BEGIN
         IF (rising_edge(clock)) THEN
 			IF (globalReset = '1') THEN
                 cycleDelay <= 0;
-				currState <= t_BOOT;
+				currState <= t_GLOBALRESET;
 			ELSIF (ramReset = '1') THEN
                 cycleDelay <= 0;
                 keepRunningState <= currState;
                 currState <= t_RAMRESET;
 			ELSE
                 CASE (currState) IS
-                    WHEN t_BOOT =>
-                        callGlobalReset <= '0';
-                        callRamReset <= '0';
-                        callStartStop <= '0';
-                        currState <= t_GLOBALRESET;
-                        debugStateVector <= "00001";
-                    
                     WHEN t_GLOBALRESET =>
                         callGlobalReset <= '1';
                         callRamReset <= '0';
