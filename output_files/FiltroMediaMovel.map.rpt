@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FiltroMediaMovel
-Wed Jun 15 13:43:21 2022
+Wed Jun 15 17:14:38 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -16,30 +16,31 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   8. Analysis & Synthesis RAM Summary
   9. State Machine - |FiltroMediaMovel|ControlUnit:StateController|keepRunningState
  10. State Machine - |FiltroMediaMovel|ControlUnit:StateController|currState
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Registers Added for RAM Pass-Through Logic
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated
- 17. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0
- 18. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1
- 19. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2
- 20. Parameter Settings for Inferred Entity Instance: CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0
- 21. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div0
- 22. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod0
- 23. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div1
- 24. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod2
- 25. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div0
- 26. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod0
- 27. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div1
- 28. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod2
- 29. altsyncram Parameter Settings by Entity Instance
- 30. Port Connectivity Checks: "ControlUnit:StateController"
- 31. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
- 32. Post-Synthesis Netlist Statistics for Top Partition
- 33. Elapsed Time Per Partition
- 34. Analysis & Synthesis Messages
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Registers Added for RAM Pass-Through Logic
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated
+ 18. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0
+ 19. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1
+ 20. Parameter Settings for User Entity Instance: CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2
+ 21. Parameter Settings for Inferred Entity Instance: RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod0
+ 24. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Div1
+ 25. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RamDisplay|lpm_divide:Mod2
+ 26. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div0
+ 27. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod0
+ 28. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div1
+ 29. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod2
+ 30. altsyncram Parameter Settings by Entity Instance
+ 31. Port Connectivity Checks: "ControlUnit:StateController"
+ 32. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
 
 
 
@@ -66,16 +67,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 15 13:43:21 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 15 17:14:38 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,099                                       ;
-;     Total combinational functions  ; 1,065                                       ;
+; Total logic elements               ; 1,320                                       ;
+;     Total combinational functions  ; 1,286                                       ;
 ;     Dedicated logic registers      ; 208                                         ;
 ; Total registers                    ; 208                                         ;
-; Total pins                         ; 69                                          ;
+; Total pins                         ; 77                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -202,6 +203,7 @@ https://fpgasoftware.intel.com/eula.
 ; ControlUnit.vhd                  ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/ControlUnit.vhd                                        ;         ;
 ; CleanInputManager.vhd            ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/CleanInputManager.vhd                                  ;         ;
 ; RamManager.vhd                   ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/RamManager.vhd                                         ;         ;
+; RomManager.vhd                   ; yes             ; User VHDL File               ; /home/maomv/repo/lsd-pf/RomManager.vhd                                         ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                 ; /opt/intelFPGA_lite/19.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
@@ -234,103 +236,104 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,099          ;
+; Estimated Total logic elements              ; 1,320          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1065           ;
+; Total combinational functions               ; 1286           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 434            ;
-;     -- 3 input functions                    ; 198            ;
-;     -- <=2 input functions                  ; 433            ;
+;     -- 4 input functions                    ; 625            ;
+;     -- 3 input functions                    ; 216            ;
+;     -- <=2 input functions                  ; 445            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 785            ;
-;     -- arithmetic mode                      ; 280            ;
+;     -- normal mode                          ; 999            ;
+;     -- arithmetic mode                      ; 287            ;
 ;                                             ;                ;
 ; Total registers                             ; 208            ;
 ;     -- Dedicated logic registers            ; 208            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 69             ;
+; I/O pins                                    ; 77             ;
 ; Total memory bits                           ; 2048           ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 216            ;
-; Total fan-out                               ; 3997           ;
-; Average fan-out                             ; 2.82           ;
+; Total fan-out                               ; 4854           ;
+; Average fan-out                             ; 2.93           ;
 +---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                               ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name               ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |FiltroMediaMovel                         ; 1065 (0)            ; 208 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 69   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
-;    |AddressGenerator:AddressGenerator|    ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|AddressGenerator:AddressGenerator                                                                                             ; AddressGenerator          ; work         ;
-;    |CleanInputManager:InputCleaner|       ; 203 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
-;       |DebounceUnit:DebounceKey0|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0                                                                      ; DebounceUnit              ; work         ;
-;       |DebounceUnit:DebounceKey1|         ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
-;       |DebounceUnit:DebounceKey2|         ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2                                                                      ; DebounceUnit              ; work         ;
-;    |CleanTriangSignalRAM256x8:CleanRAM|   ; 13 (13)             ; 25 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM                                                                                            ; CleanTriangSignalRAM256x8 ; work         ;
-;       |altsyncram:s_Memory_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0                                                                  ; altsyncram                ; work         ;
-;          |altsyncram_idc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated                                   ; altsyncram_idc1           ; work         ;
-;    |ControlUnit:StateController|          ; 58 (58)             ; 45 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ControlUnit:StateController                                                                                                   ; ControlUnit               ; work         ;
-;    |DataDisplayManager:RamDisplay|        ; 269 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay                                                                                                 ; DataDisplayManager        ; work         ;
-;       |Bin7SegDec:dozensDisplayProc|      ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:hundredsDisplayProc|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:unitsDisplayProc|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
-;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
-;             |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
-;                |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
-;       |lpm_divide:Div1|                   ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_jhm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
-;                |alt_u_div_a4f:divider|    ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
-;       |lpm_divide:Mod0|                   ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;       |lpm_divide:Mod2|                   ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;    |DataDisplayManager:RomDisplay|        ; 270 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay                                                                                                 ; DataDisplayManager        ; work         ;
-;       |Bin7SegDec:dozensDisplayProc|      ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:hundredsDisplayProc|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
-;       |Bin7SegDec:unitsDisplayProc|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
-;       |lpm_divide:Div0|                   ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_mhm:auto_generated|  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
-;             |sign_div_unsign_ekh:divider| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
-;                |alt_u_div_g4f:divider|    ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
-;       |lpm_divide:Div1|                   ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_jhm:auto_generated|  ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
-;             |sign_div_unsign_bkh:divider| ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
-;                |alt_u_div_a4f:divider|    ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
-;       |lpm_divide:Mod0|                   ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;       |lpm_divide:Mod2|                   ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
-;          |lpm_divide_q9m:auto_generated|  ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
-;             |sign_div_unsign_fkh:divider| ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
-;                |alt_u_div_i4f:divider|    ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
-;    |NoisyTriangSignalROM256x8:NoisyROM|   ; 184 (184)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|NoisyTriangSignalROM256x8:NoisyROM                                                                                            ; NoisyTriangSignalROM256x8 ; work         ;
-;    |PulseGenerator:Hz2Lane|               ; 35 (35)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|PulseGenerator:Hz2Lane                                                                                                        ; PulseGenerator            ; work         ;
-;    |RamManager:RamManagment|              ; 25 (25)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment                                                                                                       ; RamManager                ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                  ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name               ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; |FiltroMediaMovel                            ; 1286 (0)            ; 208 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 77   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
+;    |AddressGenerator:AddressGenerator|       ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|AddressGenerator:AddressGenerator                                                                                             ; AddressGenerator          ; work         ;
+;    |CleanInputManager:InputCleaner|          ; 204 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
+;       |DebounceUnit:DebounceKey0|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0                                                                      ; DebounceUnit              ; work         ;
+;       |DebounceUnit:DebounceKey1|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
+;       |DebounceUnit:DebounceKey2|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2                                                                      ; DebounceUnit              ; work         ;
+;    |ControlUnit:StateController|             ; 58 (58)             ; 45 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ControlUnit:StateController                                                                                                   ; ControlUnit               ; work         ;
+;    |DataDisplayManager:RamDisplay|           ; 269 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay                                                                                                 ; DataDisplayManager        ; work         ;
+;       |Bin7SegDec:dozensDisplayProc|         ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:hundredsDisplayProc|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:unitsDisplayProc|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
+;       |lpm_divide:Div0|                      ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_mhm:auto_generated|     ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
+;             |sign_div_unsign_ekh:divider|    ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
+;                |alt_u_div_g4f:divider|       ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
+;       |lpm_divide:Div1|                      ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_jhm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
+;             |sign_div_unsign_bkh:divider|    ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
+;                |alt_u_div_a4f:divider|       ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
+;       |lpm_divide:Mod0|                      ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|     ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|       ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
+;       |lpm_divide:Mod2|                      ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|     ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|       ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
+;    |DataDisplayManager:RomDisplay|           ; 268 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay                                                                                                 ; DataDisplayManager        ; work         ;
+;       |Bin7SegDec:dozensDisplayProc|         ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:dozensDisplayProc                                                                    ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:hundredsDisplayProc|       ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:hundredsDisplayProc                                                                  ; Bin7SegDec                ; work         ;
+;       |Bin7SegDec:unitsDisplayProc|          ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc                                                                     ; Bin7SegDec                ; work         ;
+;       |lpm_divide:Div0|                      ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_mhm:auto_generated|     ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated                                                   ; lpm_divide_mhm            ; work         ;
+;             |sign_div_unsign_ekh:divider|    ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider                       ; sign_div_unsign_ekh       ; work         ;
+;                |alt_u_div_g4f:divider|       ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div0|lpm_divide_mhm:auto_generated|sign_div_unsign_ekh:divider|alt_u_div_g4f:divider ; alt_u_div_g4f             ; work         ;
+;       |lpm_divide:Div1|                      ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_jhm:auto_generated|     ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated                                                   ; lpm_divide_jhm            ; work         ;
+;             |sign_div_unsign_bkh:divider|    ; 60 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh       ; work         ;
+;                |alt_u_div_a4f:divider|       ; 60 (60)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Div1|lpm_divide_jhm:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_a4f:divider ; alt_u_div_a4f             ; work         ;
+;       |lpm_divide:Mod0|                      ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|     ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 51 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|       ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod0|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
+;       |lpm_divide:Mod2|                      ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_q9m:auto_generated|     ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated                                                   ; lpm_divide_q9m            ; work         ;
+;             |sign_div_unsign_fkh:divider|    ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
+;                |alt_u_div_i4f:divider|       ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
+;    |PulseGenerator:Hz2Lane|                  ; 35 (35)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|PulseGenerator:Hz2Lane                                                                                                        ; PulseGenerator            ; work         ;
+;    |RamManager:RamManagment|                 ; 38 (25)             ; 50 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment                                                                                                       ; RamManager                ; work         ;
+;       |CleanTriangSignalRAM256x8:CleanRAM|   ; 13 (13)             ; 25 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM                                                                    ; CleanTriangSignalRAM256x8 ; work         ;
+;          |altsyncram:s_Memory_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0                                          ; altsyncram                ; work         ;
+;             |altsyncram_idc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated           ; altsyncram_idc1           ; work         ;
+;    |RomManager:RomManagment|                 ; 406 (37)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RomManager:RomManagment                                                                                                       ; RomManager                ; work         ;
+;       |NoisyTriangSignalROM256x8:NoisyROM|   ; 369 (369)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RomManager:RomManagment|NoisyTriangSignalROM256x8:NoisyROM                                                                    ; NoisyTriangSignalROM256x8 ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                           ;
-+--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; Name                                                                                                   ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
-+--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
-; CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None ;
-+--------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                   ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                           ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 8            ; 256          ; 8            ; 2048 ; None ;
++--------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
 Encoding Type:  One-Hot
@@ -357,6 +360,40 @@ Encoding Type:  One-Hot
 ; currState.t_RUNNING     ; 0                   ; 1                   ; 0                    ; 1                       ;
 ; currState.t_STOPPED     ; 1                   ; 0                   ; 0                    ; 1                       ;
 +-------------------------+---------------------+---------------------+----------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                           ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal            ; Free of Timing Hazards ;
++-----------------------------------------------------+--------------------------------+------------------------+
+; RomManager:RomManagment|nextData[0]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[1]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[2]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[3]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[4]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[5]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[6]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|nextData[7]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[7]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[0]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[1]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[2]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[3]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[4]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[5]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|currData[6]                 ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[6]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[5]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[4]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[3]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[2]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[1]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[0]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; RomManager:RomManagment|s_OldAddress[7]             ; RomManager:RomManagment|Equal0 ; yes                    ;
+; Number of user-specified and inferred latches = 24  ;                                ;                        ;
++-----------------------------------------------------+--------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +-----------------------------------------------------------------------------------------------------+
@@ -397,37 +434,37 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic                                                                       ;
-+--------------------------------------------------------------+---------------------------------------------------+
-; Register Name                                                ; RAM Name                                          ;
-+--------------------------------------------------------------+---------------------------------------------------+
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[0]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[1]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[2]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[3]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[4]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[5]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[6]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[7]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[8]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[9]  ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[10] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[11] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[12] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[13] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[14] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[15] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[16] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[17] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[18] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[19] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[20] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[21] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[22] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[23] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[24] ; CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
-+--------------------------------------------------------------+---------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                                                                                       ;
++--------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+; Register Name                                                                        ; RAM Name                                                                  ;
++--------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[0]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[1]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[2]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[3]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[4]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[5]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[6]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[7]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[8]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[9]  ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[10] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[11] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[12] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[13] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[14] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[15] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[16] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[17] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[18] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[19] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[20] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[21] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[22] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[23] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
+; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0_bypass[24] ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0 ;
++--------------------------------------------------------------------------------------+---------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -435,10 +472,10 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
-; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[0]                                            ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[21] ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[15] ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0|s_debounceCnt[20] ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[1]                                            ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[15] ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[8]  ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0|s_debounceCnt[7]  ;
 ; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |FiltroMediaMovel|ControlUnit:StateController|cycleDelay[5]                                  ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]       ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]       ;
@@ -454,13 +491,13 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Source assignments for CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated ;
-+---------------------------------+--------------------+------+------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                   ;
-+---------------------------------+--------------------+------+------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                    ;
-+---------------------------------+--------------------+------+------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                           ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                            ;
++---------------------------------+--------------------+------+------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------+
@@ -502,64 +539,64 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
-+------------------------------------+----------------------+---------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                              ;
-+------------------------------------+----------------------+---------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
-; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
-; WIDTH_A                            ; 8                    ; Untyped                                           ;
-; WIDTHAD_A                          ; 8                    ; Untyped                                           ;
-; NUMWORDS_A                         ; 256                  ; Untyped                                           ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; WIDTH_B                            ; 8                    ; Untyped                                           ;
-; WIDTHAD_B                          ; 8                    ; Untyped                                           ;
-; NUMWORDS_B                         ; 256                  ; Untyped                                           ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
-; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                           ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
-; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
-; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                           ;
-; CBXI_PARAMETER                     ; altsyncram_idc1      ; Untyped                                           ;
-+------------------------------------+----------------------+---------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                      ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                                   ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                                   ;
+; WIDTH_A                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_A                          ; 8                    ; Untyped                                                                   ;
+; NUMWORDS_A                         ; 256                  ; Untyped                                                                   ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_B                            ; 8                    ; Untyped                                                                   ;
+; WIDTHAD_B                          ; 8                    ; Untyped                                                                   ;
+; NUMWORDS_B                         ; 256                  ; Untyped                                                                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                                   ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                                                   ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                                   ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                                                                   ;
+; CBXI_PARAMETER                     ; altsyncram_idc1      ; Untyped                                                                   ;
++------------------------------------+----------------------+---------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -747,24 +784,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                         ;
-+-------------------------------------------+--------------------------------------------------------------+
-; Name                                      ; Value                                                        ;
-+-------------------------------------------+--------------------------------------------------------------+
-; Number of entity instances                ; 1                                                            ;
-; Entity Instance                           ; CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                    ;
-;     -- WIDTH_A                            ; 8                                                            ;
-;     -- NUMWORDS_A                         ; 256                                                          ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                 ;
-;     -- WIDTH_B                            ; 8                                                            ;
-;     -- NUMWORDS_B                         ; 256                                                          ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                                                       ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                 ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                         ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                    ;
-+-------------------------------------------+--------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                 ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                                ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                    ;
+; Entity Instance                           ; RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                            ;
+;     -- WIDTH_A                            ; 8                                                                                    ;
+;     -- NUMWORDS_A                         ; 256                                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                         ;
+;     -- WIDTH_B                            ; 8                                                                                    ;
+;     -- NUMWORDS_B                         ; 256                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                            ;
++-------------------------------------------+--------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------+
@@ -792,26 +829,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 69                          ;
+; boundary_port         ; 77                          ;
 ; cycloneiii_ff         ; 208                         ;
 ;     ENA               ; 71                          ;
 ;     ENA SCLR          ; 57                          ;
 ;     SCLR              ; 8                           ;
 ;     plain             ; 72                          ;
-; cycloneiii_lcell_comb ; 1071                        ;
-;     arith             ; 280                         ;
-;         2 data inputs ; 152                         ;
+; cycloneiii_lcell_comb ; 1292                        ;
+;     arith             ; 287                         ;
+;         2 data inputs ; 159                         ;
 ;         3 data inputs ; 128                         ;
-;     normal            ; 791                         ;
+;     normal            ; 1005                        ;
 ;         0 data inputs ; 32                          ;
-;         1 data inputs ; 17                          ;
-;         2 data inputs ; 238                         ;
-;         3 data inputs ; 70                          ;
-;         4 data inputs ; 434                         ;
+;         1 data inputs ; 18                          ;
+;         2 data inputs ; 242                         ;
+;         3 data inputs ; 88                          ;
+;         4 data inputs ; 625                         ;
 ; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 25.90                       ;
-; Average LUT depth     ; 14.88                       ;
+; Max LUT depth         ; 23.90                       ;
+; Average LUT depth     ; 10.68                       ;
 +-----------------------+-----------------------------+
 
 
@@ -820,7 +857,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -830,7 +867,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Wed Jun 15 13:43:08 2022
+    Info: Processing started: Wed Jun 15 17:14:20 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FiltroMediaMovel -c FiltroMediaMovel
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -841,7 +878,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file Arithme
     Info (12022): Found design unit 1: ArithmeticUnit-Behavioral File: /home/maomv/repo/lsd-pf/ArithmeticUnit.vhd Line: 11
     Info (12023): Found entity 1: ArithmeticUnit File: /home/maomv/repo/lsd-pf/ArithmeticUnit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FiltroMediaMovel.vhd
-    Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 16
+    Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 17
     Info (12023): Found entity 1: FiltroMediaMovel File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file PulseGenerator.vhd
     Info (12022): Found design unit 1: PulseGenerator-Behavioral File: /home/maomv/repo/lsd-pf/PulseGenerator.vhd Line: 14
@@ -871,25 +908,60 @@ Info (12021): Found 2 design units, including 1 entities, in source file CleanIn
     Info (12022): Found design unit 1: CleanInputManager-Structural File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 14
     Info (12023): Found entity 1: CleanInputManager File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file RamManager.vhd
-    Info (12022): Found design unit 1: RamManager-Behavioral File: /home/maomv/repo/lsd-pf/RamManager.vhd Line: 18
+    Info (12022): Found design unit 1: RamManager-Behavioral File: /home/maomv/repo/lsd-pf/RamManager.vhd Line: 16
     Info (12023): Found entity 1: RamManager File: /home/maomv/repo/lsd-pf/RamManager.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file RomManager.vhd
+    Info (12022): Found design unit 1: RomManager-Behavioral File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 13
+    Info (12023): Found entity 1: RomManager File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 5
 Info (12127): Elaborating entity "FiltroMediaMovel" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(24): object "s_FilterOn" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 24
+Warning (10036): Verilog HDL or VHDL warning at FiltroMediaMovel.vhd(25): object "s_FilterOn" assigned a value but never read File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 25
 Warning (10873): Using initial value X (don't care) for net "LEDG[7..5]" at FiltroMediaMovel.vhd(10) File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 37
-Info (12129): Elaborating entity "CleanInputManager" using architecture "A:structural" for hierarchy "CleanInputManager:InputCleaner" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 46
+Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 34
+Info (12129): Elaborating entity "CleanInputManager" using architecture "A:structural" for hierarchy "CleanInputManager:InputCleaner" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 43
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0" File: /home/maomv/repo/lsd-pf/CleanInputManager.vhd Line: 24
-Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 60
-Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 69
-Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:structural" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 75
+Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 57
+Info (12129): Elaborating entity "RomManager" using architecture "A:behavioral" for hierarchy "RomManager:RomManagment" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at RomManager.vhd(17): signal "s_OldAddress" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 17
+Warning (10492): VHDL Process Statement warning at RomManager.vhd(20): signal "s_SearchData" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 20
+Warning (10492): VHDL Process Statement warning at RomManager.vhd(22): signal "s_OldAddress" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 22
+Warning (10492): VHDL Process Statement warning at RomManager.vhd(23): signal "s_SearchData" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 23
+Warning (10631): VHDL Process Statement warning at RomManager.vhd(16): inferring latch(es) for signal or variable "s_OldAddress", which holds its previous value in one or more paths through the process File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Warning (10631): VHDL Process Statement warning at RomManager.vhd(16): inferring latch(es) for signal or variable "currData", which holds its previous value in one or more paths through the process File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Warning (10631): VHDL Process Statement warning at RomManager.vhd(16): inferring latch(es) for signal or variable "nextData", which holds its previous value in one or more paths through the process File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[0]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[1]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[2]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[3]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[4]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[5]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[6]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "nextData[7]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[0]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[1]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[2]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[3]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[4]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[5]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[6]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "currData[7]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[0]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[1]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[2]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[3]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[4]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[5]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[6]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (10041): Inferred latch for "s_OldAddress[7]" at RomManager.vhd(16) File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "RomManager:RomManagment|NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 27
+Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:structural" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 78
 Warning (10492): VHDL Process Statement warning at DataDisplayManager.vhd(18): signal "dataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 18
 Info (12129): Elaborating entity "Bin7SegDec" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 28
-Info (12129): Elaborating entity "RamManager" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 85
-Info (12129): Elaborating entity "CleanTriangSignalRAM256x8" using architecture "A:behavioral" for hierarchy "CleanTriangSignalRAM256x8:CleanRAM" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 97
-Info (12129): Elaborating entity "ControlUnit" using architecture "A:behavioral" for hierarchy "ControlUnit:StateController" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 116
-Warning (276020): Inferred RAM node "CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (12129): Elaborating entity "RamManager" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 88
+Info (12129): Elaborating entity "CleanTriangSignalRAM256x8" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM" File: /home/maomv/repo/lsd-pf/RamManager.vhd Line: 40
+Info (12129): Elaborating entity "ControlUnit" using architecture "A:behavioral" for hierarchy "ControlUnit:StateController" File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 108
+Warning (276020): Inferred RAM node "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" 
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
         Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 8
@@ -913,8 +985,8 @@ Info (278001): Inferred 8 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Mod0" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Div1" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 24
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "DataDisplayManager:RomDisplay|Mod2" File: /home/maomv/repo/lsd-pf/DataDisplayManager.vhd Line: 25
-Info (12130): Elaborated megafunction instantiation "CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0"
-Info (12133): Instantiated megafunction "CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0" with the following parameter:
+Info (12130): Elaborated megafunction instantiation "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0"
+Info (12133): Instantiated megafunction "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
     Info (12134): Parameter "WIDTH_A" = "8"
     Info (12134): Parameter "WIDTHAD_A" = "8"
@@ -977,40 +1049,72 @@ Info (12133): Instantiated megafunction "DataDisplayManager:RamDisplay|lpm_divid
     Info (12134): Parameter "LPM_WIDTHD" = "8"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (13012): Latch RomManager:RomManagment|currData[7] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[5] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[0] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[4] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[1] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[5] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[2] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[5] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[3] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[1] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[4] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[4] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[5] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[5] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|currData[6] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[4] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[6] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[6] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[5] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[5] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[4] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[4] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[3] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[3] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[2] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[2] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[1] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[1] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[0] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[0] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
+Warning (13012): Latch RomManager:RomManagment|s_OldAddress[7] has unsafe behavior File: /home/maomv/repo/lsd-pf/RomManager.vhd Line: 16
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal AddressGenerator:AddressGenerator|s_address[7] File: /home/maomv/repo/lsd-pf/AddressGenerator.vhd Line: 19
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[5]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 10
-    Warning (13410): Pin "HEX7[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX7[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX7[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX7[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX7[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX7[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX6[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX6[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 11
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
-    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX7[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX6[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 12
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: /home/maomv/repo/lsd-pf/FiltroMediaMovel.vhd Line: 13
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1184 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1413 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 1107 logic cells
+    Info (21059): Implemented 72 output pins
+    Info (21061): Implemented 1328 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 26 warnings
-    Info: Peak virtual memory: 976 megabytes
-    Info: Processing ended: Wed Jun 15 13:43:21 2022
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:23
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 973 megabytes
+    Info: Processing ended: Wed Jun 15 17:14:38 2022
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:30
 
 

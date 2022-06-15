@@ -8,6 +8,7 @@ ENTITY FiltroMediaMovel IS
 		KEY : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		SW : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
 		LEDG : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		LEDR : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		HEX7, HEX6, HEX5, HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		HEX3, HEX2, HEX1, HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 	);
@@ -22,10 +23,6 @@ ARCHITECTURE Structural OF FiltroMediaMovel IS
 	
 	-- Call and control signals
 	SIGNAL s_GlobalReset, s_RamReset, s_Running, s_FilterOn : STD_LOGIC;
-	
-	-- Ram manager signals
-	SIGNAL s_RamManWriteEnable : STD_LOGIC;
-	SIGNAL s_RamManAddress, s_RamManData : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	
 	-- Data signals
 	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
@@ -66,11 +63,17 @@ BEGIN
 		);
 		
 	-- ROM reading
-	NoisyROM : ENTITY work.NoisyTriangSignalROM256x8(Behavioral)
+	RomManagment : ENTITY work.RomManager(Behavioral)
 		PORT MAP(
-			address => s_Address,
-			dataOut => s_NoisyData
+			inAddress => s_Address,
+			currData => s_NoisyData,
+			nextData => LEDR
 		);
+	--NoisyROM : ENTITY work.NoisyTriangSignalROM256x8(Behavioral)
+		--PORT MAP(
+			--address => s_Address,
+			--dataOut => s_NoisyData
+		--);
 		
 	RomDisplay : ENTITY work.DataDisplayManager(Structural)
 		PORT MAP(
@@ -89,18 +92,7 @@ BEGIN
 			inWriteEnable => s_Swi0, --TODO
 			inAddress => s_Address,
 			inData => s_NoisyData, --TODO
-			outWriteEnable => s_RamManWriteEnable,
-			outAddress => s_RamManAddress,
-			outData => s_RamManData
-		);
-	
-	CleanRAM : ENTITY work.CleanTriangSignalRAM256x8(Behavioral)
-		PORT MAP(
-			clock => CLOCK_50,
-			writeEnable => s_RamManWriteEnable,
-			writeData => s_RamManData,
-			address => s_RamManAddress,
-			dataOut => s_CleanDataDisplay
+			outData => s_CleanDataDisplay
 		);
 
 	RamDisplay : ENTITY work.DataDisplayManager(Structural)
