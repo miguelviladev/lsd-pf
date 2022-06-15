@@ -65,15 +65,11 @@ BEGIN
 	-- ROM reading
 	RomManagment : ENTITY work.RomManager(Behavioral)
 		PORT MAP(
+			clock => CLOCK_50, 
 			inAddress => s_Address,
 			currData => s_NoisyData,
 			nextData => LEDR
 		);
-	--NoisyROM : ENTITY work.NoisyTriangSignalROM256x8(Behavioral)
-		--PORT MAP(
-			--address => s_Address,
-			--dataOut => s_NoisyData
-		--);
 		
 	RomDisplay : ENTITY work.DataDisplayManager(Structural)
 		PORT MAP(
