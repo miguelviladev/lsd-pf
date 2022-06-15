@@ -13,6 +13,7 @@ BEGIN
 			op1 => s_Op1,
 			op2 => s_Op2,
 			op3 => s_Op3,
+			address => "00000011",
 			result => s_Result
 		);
 

@@ -8,7 +8,6 @@ ENTITY FiltroMediaMovel IS
 		KEY : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		SW : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
 		LEDG : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		LEDR : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		HEX7, HEX6, HEX5, HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		HEX3, HEX2, HEX1, HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 	);
@@ -26,7 +25,7 @@ ARCHITECTURE Structural OF FiltroMediaMovel IS
 	
 	-- Data signals
 	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL s_NoisyData : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL s_NoisyData, s_NextNoisyData, s_NoisyData0, s_NoisyData1, s_NoisyData2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL s_CleanData : STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL s_CleanDataDisplay : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
@@ -68,7 +67,7 @@ BEGIN
 			clock => CLOCK_50, 
 			inAddress => s_Address,
 			currData => s_NoisyData,
-			nextData => LEDR
+			nextData => s_NextNoisyData
 		);
 		
 	RomDisplay : ENTITY work.DataDisplayManager(Structural)
@@ -87,17 +86,39 @@ BEGIN
 			reset => s_RamReset,
 			inWriteEnable => s_Swi0, --TODO
 			inAddress => s_Address,
-			inData => s_NoisyData, --TODO
+			inData => s_CleanData, --TODO
 			outData => s_CleanDataDisplay
 		);
 
 	RamDisplay : ENTITY work.DataDisplayManager(Structural)
 		PORT MAP(
-			dataIn => s_CleanDataDisplay,
+			--dataIn => s_CleanDataDisplay,
+			dataIn => s_NoisyData0,
 			signalDisplay => HEX7,
 			hundredsDisplay => HEX6,
 			dozensDisplay => HEX5,
 			unitsDisplay => HEX4
+		);
+		
+	-- Data handling and calculation
+	DataBank : ENTITY work.RegisterBank(Behavioral)
+		PORT MAP(
+			clock => CLOCK_50,
+			writeEnable => s_2HzLane,
+			currDataIn => s_NoisyData,
+			dataOut0 => s_NoisyData0,
+			dataOut1 => s_NoisyData1,
+			dataOut2 => s_NoisyData2
+		);
+		
+	Calculation : ENTITY work.ArithmeticUnit(Behavioral)
+		PORT MAP(
+			op0 => s_NoisyData0,
+			op1 => s_NoisyData1,
+			op2 => s_NoisyData2,
+			op3 => s_NextNoisyData,
+			address => s_Address,
+			result => s_CleanData
 		);
 
 	-- State controller
