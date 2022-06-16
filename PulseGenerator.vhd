@@ -3,7 +3,10 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
 ENTITY PulseGenerator IS
-    PORT (
+	GENERIC (
+		MAX : POSITIVE := 50000000
+	);
+   PORT (
         clock : IN STD_LOGIC;
         startStop : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -12,7 +15,6 @@ ENTITY PulseGenerator IS
 END PulseGenerator;
 
 ARCHITECTURE Behavioral OF PulseGenerator IS
-	CONSTANT MAX : POSITIVE := 25000000;
    SIGNAL s_Cnt : NATURAL RANGE 0 TO MAX - 1;
 BEGIN
     PROCESS (clock)

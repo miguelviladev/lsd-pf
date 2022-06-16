@@ -10,6 +10,9 @@ ENTITY ArithmeticUnit IS
 END ArithmeticUnit;
 
 ARCHITECTURE Behavioral OF ArithmeticUnit IS
+	SIGNAL s_Sum, s_Result : INTEGER;
 BEGIN
-		result <= op0 WHEN ((address = "00000000") or (address = "00000001") or (address = "11111111")) ELSE STD_LOGIC_VECTOR((signed(op0) + signed(op1) + signed(op2) + signed(op3)) / 4);
+	s_Sum <= (TO_INTEGER(SIGNED(op0)) + TO_INTEGER(SIGNED(op1))) + (TO_INTEGER(SIGNED(op2)) + TO_INTEGER(SIGNED(op3)));
+	s_Result <= s_Sum / 4;
+	result <= op0 WHEN ((address = "00000000") or (address = "00000001") or (address = "11111111")) ELSE STD_LOGIC_VECTOR(TO_SIGNED(s_Result,8));
 END Behavioral;

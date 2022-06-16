@@ -1,5 +1,5 @@
 Flow report for FiltroMediaMovel
-Wed Jun 15 19:15:36 2022
+Thu Jun 16 16:39:06 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 15 19:15:36 2022       ;
+; Flow Status                        ; Successful - Thu Jun 16 16:39:06 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 857 / 114,480 ( < 1 % )                     ;
-;     Total combinational functions  ; 849 / 114,480 ( < 1 % )                     ;
-;     Dedicated logic registers      ; 173 / 114,480 ( < 1 % )                     ;
-; Total registers                    ; 173                                         ;
-; Total pins                         ; 69 / 529 ( 13 % )                           ;
+; Total logic elements               ; 1,178 / 114,480 ( 1 % )                     ;
+;     Total combinational functions  ; 1,130 / 114,480 ( < 1 % )                   ;
+;     Dedicated logic registers      ; 277 / 114,480 ( < 1 % )                     ;
+; Total registers                    ; 277                                         ;
+; Total pins                         ; 87 / 529 ( 16 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048 / 3,981,312 ( < 1 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/15/2022 19:15:03 ;
+; Start date & time ; 06/16/2022 16:38:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; FiltroMediaMovel    ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 115052579713273.165531690316954        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 115052579713273.165539390926916        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -101,12 +101,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 972 MB              ; 00:00:21                           ;
-; Fitter               ; 00:00:15     ; 1.0                     ; 1423 MB             ; 00:00:20                           ;
-; Assembler            ; 00:00:03     ; 1.0                     ; 808 MB              ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 870 MB              ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1032 MB             ; 00:00:00                           ;
-; Total                ; 00:00:30     ; --                      ; --                  ; 00:00:46                           ;
+; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 975 MB              ; 00:00:22                           ;
+; Fitter               ; 00:00:16     ; 1.0                     ; 1426 MB             ; 00:00:22                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 812 MB              ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 872 MB              ; 00:00:02                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 1035 MB             ; 00:00:01                           ;
+; Total                ; 00:00:34     ; --                      ; --                  ; 00:00:50                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
