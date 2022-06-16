@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
--- DATE "06/16/2022 16:39:06"
+-- DATE "06/16/2022 18:31:12"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -82,16 +82,16 @@ ENTITY 	FiltroMediaMovel IS
 	CLOCK_50 : IN std_logic;
 	KEY : IN std_logic_vector(2 DOWNTO 0);
 	SW : IN std_logic_vector(0 DOWNTO 0);
-	LEDG : OUT std_logic_vector(7 DOWNTO 0);
-	LEDR : OUT std_logic_vector(17 DOWNTO 0);
-	HEX7 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX6 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX5 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX4 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX3 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX2 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX1 : OUT std_logic_vector(6 DOWNTO 0);
-	HEX0 : OUT std_logic_vector(6 DOWNTO 0)
+	LEDG : BUFFER std_logic_vector(7 DOWNTO 0);
+	LEDR : BUFFER std_logic_vector(17 DOWNTO 0);
+	HEX7 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX6 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX5 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX4 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX3 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX2 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX1 : BUFFER std_logic_vector(6 DOWNTO 0);
+	HEX0 : BUFFER std_logic_vector(6 DOWNTO 0)
 	);
 END FiltroMediaMovel;
 

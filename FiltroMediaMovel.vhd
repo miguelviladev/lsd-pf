@@ -7,8 +7,7 @@ ENTITY FiltroMediaMovel IS
 		CLOCK_50 : IN  STD_LOGIC;
 		KEY : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 		SW : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-		LEDG : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		LEDR : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+		LEDG : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
 		HEX7, HEX6, HEX5, HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 		HEX3, HEX2, HEX1, HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 	);
@@ -16,19 +15,19 @@ END FiltroMediaMovel;
 
 ARCHITECTURE Structural OF FiltroMediaMovel IS
 	-- Pulse signals
-	SIGNAL s_2HzLane, s_DataReady : STD_LOGIC;
+	SIGNAL s_2HzLane : STD_LOGIC;
 	
 	-- Clean and syncronized inputs
 	SIGNAL s_Key0, s_Key1, s_Key2, s_Swi0 : STD_LOGIC;
 	
 	-- Call and control signals
-	SIGNAL s_GlobalReset, s_RamReset, s_Running, s_FilterOn : STD_LOGIC;
+	SIGNAL s_GlobalReset, s_RamReset, s_Running, s_FilterOn, s_DataReady : STD_LOGIC;
 	
 	-- Data signals
 	SIGNAL s_Address : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL s_NoisyData, s_NextNoisyData, s_NoisyData0, s_NoisyData1, s_NoisyData2, s_NoisyData3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL s_CleanData : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	SIGNAL s_CleanDataDisplay : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL s_NoisyData, s_NextNoisyData : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL s_NoisyData0, s_NoisyData1, s_NoisyData2, s_NoisyData3 : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL s_CleanData, s_CleanDataDisplay : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
 	-- Pulse generation
 	Hz2Lane : ENTITY work.PulseGenerator(Behavioral)
@@ -89,7 +88,7 @@ BEGIN
 		PORT MAP(
 			clock => CLOCK_50,
 			reset => s_RamReset,
-			inWriteEnable => s_Swi0, --TODO
+			inWriteEnable => s_Swi0,
 			inAddress => s_Address,
 			inData => s_CleanData,
 			outData => s_CleanDataDisplay
