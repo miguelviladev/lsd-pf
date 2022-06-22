@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.6.21)  22 JUN 2022 03:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.6.21)  22 JUN 2022 03:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**documento.tex
-(./documento.tex
+**report/documento.tex
+(./report/documento.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -582,7 +582,7 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count414
 \l__pdf_internal_box=\box50
 )
-(./documento.aux)
+No file documento.aux.
 \openout1 = `documento.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -603,7 +603,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
 LaTeX Font Info:    ... okay on input line 21.
 Package biblatex Info: Trying to load language 'portuguese'...
 Package biblatex Info: ... file 'portuguese.lbx' found.
-
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/portuguese.lbx
 File: portuguese.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
@@ -634,8 +633,6 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 21.
 LaTeX Info: Redefining \pageref on input line 21.
 LaTeX Info: Redefining \nameref on input line 21.
-
-(./documento.out) (./documento.out)
 \@outlinefile=\write4
 \openout4 = `documento.out'.
 
@@ -674,90 +671,127 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<fpga.jpg, id=14, 645.91313pt x 525.46312pt>
-File: fpga.jpg Graphic file (type jpg)
-<use fpga.jpg>
-Package pdftex.def Info: fpga.jpg  used on input line 57.
-(pdftex.def)             Requested size: 345.0pt x 280.65897pt.
- [1 <./fpga.jpg>]
-<schematic.png, id=23, 1013.28563pt x 499.8675pt>
-File: schematic.png Graphic file (type png)
-<use schematic.png>
-Package pdftex.def Info: schematic.png  used on input line 76.
-(pdftex.def)             Requested size: 345.0pt x 170.18915pt.
 
-[2 <./schematic.png>]
-<controlunit.png, id=29, 567.62062pt x 243.15843pt>
-File: controlunit.png Graphic file (type png)
-<use controlunit.png>
-Package pdftex.def Info: controlunit.png  used on input line 99.
-(pdftex.def)             Requested size: 345.0pt x 147.79585pt.
- [3 <./controlunit.png (PNG copy)>]
-<rommanager.png, id=36, 544.28343pt x 206.27063pt>
-File: rommanager.png Graphic file (type png)
-<use rommanager.png>
-Package pdftex.def Info: rommanager.png  used on input line 116.
-(pdftex.def)             Requested size: 345.0pt x 130.74432pt.
-<addressgeneratorval.png, id=37, 734.745pt x 111.41624pt>
-File: addressgeneratorval.png Graphic file (type png)
-<use addressgeneratorval.png>
-Package pdftex.def Info: addressgeneratorval.png  used on input line 133.
-(pdftex.def)             Requested size: 345.0pt x 52.31633pt.
- [4 <./rommanager.png (PNG copy)>]
-<registerbankval.png, id=43, 926.71219pt x 168.63pt>
-File: registerbankval.png Graphic file (type png)
-<use registerbankval.png>
-Package pdftex.def Info: registerbankval.png  used on input line 139.
-(pdftex.def)             Requested size: 345.0pt x 62.77808pt.
-<arithmeticunitval.png, id=44, 733.99219pt x 139.27031pt>
-File: arithmeticunitval.png Graphic file (type png)
-<use arithmeticunitval.png>
-Package pdftex.def Info: arithmeticunitval.png  used on input line 145.
-(pdftex.def)             Requested size: 345.0pt x 65.46342pt.
-<values.png, id=45, 778.40813pt x 88.07906pt>
-File: values.png Graphic file (type png)
-<use values.png>
-Package pdftex.def Info: values.png  used on input line 151.
-(pdftex.def)             Requested size: 345.0pt x 39.03847pt.
- [5 <./addressgeneratorval.png (PNG copy)> <./registerbankval.png (PNG copy)> <
-./arithmeticunitval.png (PNG copy)> <./values.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
-
-[6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
- (./documento.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
-Package rerunfilecheck Info: File `documento.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+LaTeX Warning: File `fpga.jpg' not found on input line 57.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+! Package pdftex.def Error: File `fpga.jpg' not found: using draft setting.
 
-Package logreq Info: Writing requests to 'documento.run.xml'.
-\openout1 = `documento.run.xml'.
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 ...ncludegraphics[width=\textwidth]{fpga.jpg}
+                                                  
+? 
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
+7.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+) [1] [2]
 
- ) 
+LaTeX Warning: File `schematic.png' not found on input line 76.
+
+
+! Package pdftex.def Error: File `schematic.png' not found: using draft setting
+.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.76 ...egraphics[width=\textwidth]{schematic.png}
+                                                  
+? 
+[3] [4]
+
+LaTeX Warning: File `controlunit.png' not found on input line 99.
+
+
+! Package pdftex.def Error: File `controlunit.png' not found: using draft setti
+ng.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.99 ...raphics[width=\textwidth]{controlunit.png}
+                                                  
+? 
+[5] [6]
+
+LaTeX Warning: File `rommanager.png' not found on input line 116.
+
+
+! Package pdftex.def Error: File `rommanager.png' not found: using draft settin
+g.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.116 ...raphics[width=\textwidth]{rommanager.png}
+                                                  
+? 
+
+LaTeX Warning: File `addressgeneratorval.png' not found on input line 133.
+
+
+! Package pdftex.def Error: File `addressgeneratorval.png' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133 ...idth=\textwidth]{addressgeneratorval.png}
+                                                  
+? 
+[7]
+
+LaTeX Warning: File `registerbankval.png' not found on input line 139.
+
+
+! Package pdftex.def Error: File `registerbankval.png' not found: using draft s
+etting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 ...cs[width=\textwidth]{registerbankval.png}
+                                                  
+? 
+[8]
+
+LaTeX Warning: File `arithmeticunitval.png' not found on input line 145.
+
+
+! Package pdftex.def Error: File `arithmeticunitval.png' not found: using draft
+ setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...[width=\textwidth]{arithmeticunitval.png}
+                                                  
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.145 ...[width=\textwidth]{arithmeticunitval.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
 Here is how much of TeX's memory you used:
- 15604 strings out of 483122
- 267029 string characters out of 5964496
- 937068 words of memory out of 5000000
- 30397 multiletter control sequences out of 15000+600000
- 542344 words of font info for 43 fonts, out of 8000000 for 9000
+ 15682 strings out of 483122
+ 268901 string characters out of 5964496
+ 935824 words of memory out of 5000000
+ 30470 multiletter control sequences out of 15000+600000
+ 542657 words of font info for 44 fonts, out of 8000000 for 9000
  38 hyphenation exceptions out of 8191
- 48i,6n,46p,1134b,1613s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600
-pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.60
-0pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.6
-00pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.
-600pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200
-.600pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm144
-0.600pk> </home/maomv/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx24
-88.600pk>
-Output written on documento.pdf (7 pages, 1449779 bytes).
-PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 48i,6n,46p,1141b,747s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
