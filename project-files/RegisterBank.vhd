@@ -11,7 +11,7 @@ END RegisterBank;
 ARCHITECTURE Behavioral OF RegisterBank IS
 	SIGNAL s_Data0, s_Data1, s_Data2, s_Data3 : STD_LOGIC_VECTOR(7 DOWNTO 0) := (OTHERS => '0');
 BEGIN
-	PROCESS (writeEnable)
+	PROCESS (clock, writeEnable)
 	BEGIN
 		IF (RISING_EDGE(clock)) THEN
 			IF (writeEnable = '1') THEN

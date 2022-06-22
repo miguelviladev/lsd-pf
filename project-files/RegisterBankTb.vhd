@@ -31,10 +31,22 @@ BEGIN
 	END PROCESS;
 	
 	STIMULUSPROC : PROCESS BEGIN
+		s_NextDataIn <= "00000001";
 		s_CurrDataIn <= "00001100"; WAIT FOR 40 ns;
+		s_NextDataIn <= "01000001";
 		s_CurrDataIn <= "00000000"; WAIT FOR 40 ns;
+		s_NextDataIn <= "00111001";
 		s_CurrDataIn <= "00000001"; WAIT FOR 40 ns;
+		s_NextDataIn <= "00001001";
 		s_CurrDataIn <= "11111111"; WAIT FOR 40 ns;
+		s_NextDataIn <= "10000001";
 		s_CurrDataIn <= "01001100"; WAIT FOR 40 ns;
+		s_CurrDataIn <= "01101100"; WAIT FOR 40 ns;
+		s_NextDataIn <= "11110001";
+		s_CurrDataIn <= "01001111"; WAIT FOR 40 ns;
+		s_CurrDataIn <= "00001100"; WAIT FOR 40 ns;
+		s_CurrDataIn <= "11111110"; WAIT FOR 40 ns;
+		s_NextDataIn <= "11111101";
+		s_CurrDataIn <= "11111111"; WAIT FOR 40 ns;
 	END PROCESS;
 END Stimulus;

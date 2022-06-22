@@ -12,13 +12,13 @@ ENTITY AddressGenerator IS
 END AddressGenerator;
 
 ARCHITECTURE Behavioral OF AddressGenerator IS
-	SIGNAL s_address : unsigned(7 DOWNTO 0);
+	SIGNAL s_address : unsigned(7 DOWNTO 0) := "00000000";
 BEGIN
 	PROCESS (clock)
 	BEGIN
 		IF (rising_edge(clock)) THEN
 			IF (reset = '1') THEN
-				s_address <= (OTHERS => '0');
+				s_address <= "00000000";
 			ELSE
 				IF (enable = '1') THEN
 					s_address <= s_address + 1;

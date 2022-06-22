@@ -14,6 +14,7 @@ END FiltroMediaMovel;
 ARCHITECTURE Structural OF FiltroMediaMovel IS
 	-- Pulse signals
 	SIGNAL s_2HzLane : STD_LOGIC;
+	--SIGNAL s_WritePulse : STD_LOGIC;
 	
 	-- Clean and syncronized inputs
 	SIGNAL s_Key0, s_Key1, s_Key2, s_Swi0 : STD_LOGIC;
@@ -38,6 +39,18 @@ BEGIN
 			reset => s_GlobalReset,
 			pulse => s_2HzLane
 		);
+		
+	-- Write pulse generation
+	--WritePulse : ENTITY work.Timer(Behavioral)
+		--GENERIC MAP (
+			--K => 500
+		--)
+		--PORT MAP(
+			--clock => CLOCK_50,
+			--reset => s_GlobalReset,
+			--start => s_2HzLane,
+			--timerOut => s_WritePulse
+		--);
 	
 	-- Input syncronization and cleaning
 	InputCleaner : ENTITY work.CleanInputManager(Structural)
@@ -86,7 +99,8 @@ BEGIN
 		PORT MAP(
 			clock => CLOCK_50,
 			reset => s_RamReset,
-			inWriteEnable => s_FilterOn,
+			--inWriteEnable => s_WritePulse,
+			inWriteEnable => '1',
 			inAddress => s_Address,
 			inData => s_CleanData,
 			outData => s_CleanDataDisplay
@@ -117,6 +131,7 @@ BEGIN
 	Calculation : ENTITY work.ArithmeticUnit(Behavioral)
 		PORT MAP(
 			address => s_Address,
+			filterOn => s_FilterOn,
 			op0 => s_NoisyData0,
 			op1 => s_NoisyData1,
 			op2 => s_NoisyData2,

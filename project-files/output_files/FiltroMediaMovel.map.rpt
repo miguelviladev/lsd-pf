@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FiltroMediaMovel
-Tue Jun 21 16:59:59 2022
+Wed Jun 22 02:04:54 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -37,10 +37,11 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
  29. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Div1
  30. Parameter Settings for Inferred Entity Instance: DataDisplayManager:RomDisplay|lpm_divide:Mod2
  31. altsyncram Parameter Settings by Entity Instance
- 32. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
- 33. Post-Synthesis Netlist Statistics for Top Partition
- 34. Elapsed Time Per Partition
- 35. Analysis & Synthesis Messages
+ 32. Port Connectivity Checks: "RamManager:RamManagment"
+ 33. Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc"
+ 34. Post-Synthesis Netlist Statistics for Top Partition
+ 35. Elapsed Time Per Partition
+ 36. Analysis & Synthesis Messages
 
 
 
@@ -67,15 +68,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 21 16:59:59 2022       ;
+; Analysis & Synthesis Status        ; Successful - Wed Jun 22 02:04:54 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,205                                       ;
-;     Total combinational functions  ; 1,131                                       ;
-;     Dedicated logic registers      ; 273                                         ;
-; Total registers                    ; 273                                         ;
+; Total logic elements               ; 1,202                                       ;
+;     Total combinational functions  ; 1,128                                       ;
+;     Dedicated logic registers      ; 272                                         ;
+; Total registers                    ; 272                                         ;
 ; Total pins                         ; 61                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 2,048                                       ;
@@ -239,20 +240,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 1,205          ;
+; Estimated Total logic elements              ; 1,202          ;
 ;                                             ;                ;
-; Total combinational functions               ; 1131           ;
+; Total combinational functions               ; 1128           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 443            ;
-;     -- 3 input functions                    ; 231            ;
-;     -- <=2 input functions                  ; 457            ;
+;     -- 4 input functions                    ; 446            ;
+;     -- 3 input functions                    ; 229            ;
+;     -- <=2 input functions                  ; 453            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 810            ;
+;     -- normal mode                          ; 807            ;
 ;     -- arithmetic mode                      ; 321            ;
 ;                                             ;                ;
-; Total registers                             ; 273            ;
-;     -- Dedicated logic registers            ; 273            ;
+; Total registers                             ; 272            ;
+;     -- Dedicated logic registers            ; 272            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 61             ;
@@ -261,8 +262,8 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 281            ;
-; Total fan-out                               ; 4357           ;
+; Maximum fan-out                             ; 280            ;
+; Total fan-out                               ; 4344           ;
 ; Average fan-out                             ; 2.84           ;
 +---------------------------------------------+----------------+
 
@@ -272,12 +273,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
 ; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                             ; Entity Name               ; Library Name ;
 +----------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
-; |FiltroMediaMovel                            ; 1131 (0)            ; 273 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 61   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
+; |FiltroMediaMovel                            ; 1128 (0)            ; 272 (0)                   ; 2048        ; 0            ; 0       ; 0         ; 61   ; 0            ; |FiltroMediaMovel                                                                                                                               ; FiltroMediaMovel          ; work         ;
 ;    |AddressGenerator:AddressGenerator|       ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|AddressGenerator:AddressGenerator                                                                                             ; AddressGenerator          ; work         ;
-;    |ArithmeticUnit:Calculation|              ; 50 (50)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ArithmeticUnit:Calculation                                                                                                    ; ArithmeticUnit            ; work         ;
-;    |CleanInputManager:InputCleaner|          ; 206 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
-;       |DebounceUnit:DebounceKey0|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0                                                                      ; DebounceUnit              ; work         ;
-;       |DebounceUnit:DebounceKey1|            ; 70 (70)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
+;    |ArithmeticUnit:Calculation|              ; 51 (51)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ArithmeticUnit:Calculation                                                                                                    ; ArithmeticUnit            ; work         ;
+;    |CleanInputManager:InputCleaner|          ; 203 (0)             ; 79 (1)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner                                                                                                ; CleanInputManager         ; work         ;
+;       |DebounceUnit:DebounceKey0|            ; 67 (67)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0                                                                      ; DebounceUnit              ; work         ;
+;       |DebounceUnit:DebounceKey1|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1                                                                      ; DebounceUnit              ; work         ;
 ;       |DebounceUnit:DebounceKey2|            ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2                                                                      ; DebounceUnit              ; work         ;
 ;    |ControlUnit:StateController|             ; 57 (57)             ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|ControlUnit:StateController                                                                                                   ; ControlUnit               ; work         ;
 ;    |DataDisplayManager:RamDisplay|           ; 269 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RamDisplay                                                                                                 ; DataDisplayManager        ; work         ;
@@ -321,7 +322,7 @@ https://fpgasoftware.intel.com/eula.
 ;             |sign_div_unsign_fkh:divider|    ; 83 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider                       ; sign_div_unsign_fkh       ; work         ;
 ;                |alt_u_div_i4f:divider|       ; 83 (83)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|DataDisplayManager:RomDisplay|lpm_divide:Mod2|lpm_divide_q9m:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_i4f:divider ; alt_u_div_i4f             ; work         ;
 ;    |PulseGenerator:Hz2Lane|                  ; 35 (35)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|PulseGenerator:Hz2Lane                                                                                                        ; PulseGenerator            ; work         ;
-;    |RamManager:RamManagment|                 ; 30 (17)             ; 50 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment                                                                                                       ; RamManager                ; work         ;
+;    |RamManager:RamManagment|                 ; 29 (16)             ; 49 (24)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment                                                                                                       ; RamManager                ; work         ;
 ;       |CleanTriangSignalRAM256x8:CleanRAM|   ; 13 (13)             ; 25 (25)                   ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM                                                                    ; CleanTriangSignalRAM256x8 ; work         ;
 ;          |altsyncram:s_Memory_rtl_0|         ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0                                          ; altsyncram                ; work         ;
 ;             |altsyncram_idc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |FiltroMediaMovel|RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|altsyncram:s_Memory_rtl_0|altsyncram_idc1:auto_generated           ; altsyncram_idc1           ; work         ;
@@ -380,16 +381,17 @@ Encoding Type:  One-Hot
 +-------------------------+-----------------------+-------------------------+-------------------------+------------------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+------------------------------------------------------------+--------------------+
-; Register name                                              ; Reason for Removal ;
-+------------------------------------------------------------+--------------------+
-; ControlUnit:StateController|keepRunningState.t_RAMRESET    ; Lost fanout        ;
-; ControlUnit:StateController|keepRunningState.t_GLOBALRESET ; Lost fanout        ;
-; ControlUnit:StateController|keepRunningState.t_STOPPED     ; Lost fanout        ;
-; Total Number of Removed Registers = 3                      ;                    ;
-+------------------------------------------------------------+--------------------+
++-----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                  ;
++------------------------------------------------------------+----------------------------------------+
+; Register name                                              ; Reason for Removal                     ;
++------------------------------------------------------------+----------------------------------------+
+; RamManager:RamManagment|s_WriteEnable                      ; Stuck at VCC due to stuck port data_in ;
+; ControlUnit:StateController|keepRunningState.t_RAMRESET    ; Lost fanout                            ;
+; ControlUnit:StateController|keepRunningState.t_GLOBALRESET ; Lost fanout                            ;
+; ControlUnit:StateController|keepRunningState.t_STOPPED     ; Lost fanout                            ;
+; Total Number of Removed Registers = 4                      ;                                        ;
++------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -397,7 +399,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 273   ;
+; Total registers                              ; 272   ;
 ; Number of registers using Synchronous Clear  ; 73    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -463,11 +465,11 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |FiltroMediaMovel|RamManager:RamManagment|s_DataIn[0]                                       ;
-; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[14]                                          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |FiltroMediaMovel|RamManager:RamManagment|s_DataIn[4]                                       ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 25 LEs               ; 25 LEs                 ; Yes        ; |FiltroMediaMovel|PulseGenerator:Hz2Lane|s_Cnt[15]                                          ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FiltroMediaMovel|RomManager:RomManagment|s_SearchAddress[4]                                ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[7] ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[4] ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey1|s_debounceCnt[5] ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey2|s_debounceCnt[5] ;
 ; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |FiltroMediaMovel|CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0|s_debounceCnt[6] ;
 ; 7:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |FiltroMediaMovel|ControlUnit:StateController|cycleDelay[20]                                ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; No         ; |FiltroMediaMovel|DataDisplayManager:RamDisplay|Bin7SegDec:unitsDisplayProc|dataOut[4]      ;
@@ -807,6 +809,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+--------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------+
+; Port Connectivity Checks: "RamManager:RamManagment" ;
++---------------+-------+----------+------------------+
+; Port          ; Type  ; Severity ; Details          ;
++---------------+-------+----------+------------------+
+; inwriteenable ; Input ; Info     ; Stuck at VCC     ;
++---------------+-------+----------+------------------+
+
+
 +----------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" ;
 +-----------+-------+----------+---------------------------------------------------------+
@@ -824,25 +835,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 61                          ;
-; cycloneiii_ff         ; 273                         ;
+; cycloneiii_ff         ; 272                         ;
 ;     ENA               ; 131                         ;
 ;     ENA SCLR          ; 57                          ;
 ;     SCLR              ; 16                          ;
-;     plain             ; 69                          ;
-; cycloneiii_lcell_comb ; 1137                        ;
+;     plain             ; 68                          ;
+; cycloneiii_lcell_comb ; 1134                        ;
 ;     arith             ; 321                         ;
 ;         2 data inputs ; 165                         ;
 ;         3 data inputs ; 156                         ;
-;     normal            ; 816                         ;
+;     normal            ; 813                         ;
 ;         0 data inputs ; 32                          ;
 ;         1 data inputs ; 26                          ;
-;         2 data inputs ; 240                         ;
-;         3 data inputs ; 75                          ;
-;         4 data inputs ; 443                         ;
+;         2 data inputs ; 236                         ;
+;         3 data inputs ; 73                          ;
+;         4 data inputs ; 446                         ;
 ; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 23.90                       ;
-; Average LUT depth     ; 10.53                       ;
+; Average LUT depth     ; 10.55                       ;
 +-----------------------+-----------------------------+
 
 
@@ -851,7 +862,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -861,7 +872,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Jun 21 16:59:45 2022
+    Info: Processing started: Wed Jun 22 02:04:42 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FiltroMediaMovel -c FiltroMediaMovel
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterBank.vhd
@@ -871,7 +882,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file Arithme
     Info (12022): Found design unit 1: ArithmeticUnitTb-Stimulus File: /home/maomv/repo/lsd-pf/project-files/ArithmeticUnitTb.vhd Line: 7
     Info (12023): Found entity 1: ArithmeticUnitTb File: /home/maomv/repo/lsd-pf/project-files/ArithmeticUnitTb.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ArithmeticUnit.vhd
-    Info (12022): Found design unit 1: ArithmeticUnit-Behavioral File: /home/maomv/repo/lsd-pf/project-files/ArithmeticUnit.vhd Line: 12
+    Info (12022): Found design unit 1: ArithmeticUnit-Behavioral File: /home/maomv/repo/lsd-pf/project-files/ArithmeticUnit.vhd Line: 13
     Info (12023): Found entity 1: ArithmeticUnit File: /home/maomv/repo/lsd-pf/project-files/ArithmeticUnit.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file FiltroMediaMovel.vhd
     Info (12022): Found design unit 1: FiltroMediaMovel-Structural File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 14
@@ -912,21 +923,26 @@ Info (12021): Found 2 design units, including 1 entities, in source file RomMana
 Info (12021): Found 2 design units, including 1 entities, in source file RegisterBankTb.vhd
     Info (12022): Found design unit 1: RegisterBankTb-Stimulus File: /home/maomv/repo/lsd-pf/project-files/RegisterBankTb.vhd Line: 7
     Info (12023): Found entity 1: RegisterBankTb File: /home/maomv/repo/lsd-pf/project-files/RegisterBankTb.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Timer.vhd
+    Info (12022): Found design unit 1: Timer-Behavioral File: /home/maomv/repo/lsd-pf/project-files/Timer.vhd Line: 13
+    Info (12023): Found entity 1: Timer File: /home/maomv/repo/lsd-pf/project-files/Timer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file AddressGeneratorTb.vhd
+    Info (12022): Found design unit 1: AddressGeneratorTb-Stimulus File: /home/maomv/repo/lsd-pf/project-files/AddressGeneratorTb.vhd Line: 7
+    Info (12023): Found entity 1: AddressGeneratorTb File: /home/maomv/repo/lsd-pf/project-files/AddressGeneratorTb.vhd Line: 4
 Info (12127): Elaborating entity "FiltroMediaMovel" for the top level hierarchy
-Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 31
-Info (12129): Elaborating entity "CleanInputManager" using architecture "A:structural" for hierarchy "CleanInputManager:InputCleaner" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 43
+Info (12129): Elaborating entity "PulseGenerator" using architecture "A:behavioral" for hierarchy "PulseGenerator:Hz2Lane" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 32
+Info (12129): Elaborating entity "CleanInputManager" using architecture "A:structural" for hierarchy "CleanInputManager:InputCleaner" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 56
 Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "CleanInputManager:InputCleaner|DebounceUnit:DebounceKey0" File: /home/maomv/repo/lsd-pf/project-files/CleanInputManager.vhd Line: 24
-Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 57
-Info (12129): Elaborating entity "RomManager" using architecture "A:behavioral" for hierarchy "RomManager:RomManagment" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 66
+Info (12129): Elaborating entity "AddressGenerator" using architecture "A:behavioral" for hierarchy "AddressGenerator:AddressGenerator" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 70
+Info (12129): Elaborating entity "RomManager" using architecture "A:behavioral" for hierarchy "RomManager:RomManagment" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 79
 Info (12129): Elaborating entity "NoisyTriangSignalROM256x8" using architecture "A:behavioral" for hierarchy "RomManager:RomManagment|NoisyTriangSignalROM256x8:NoisyROM" File: /home/maomv/repo/lsd-pf/project-files/RomManager.vhd Line: 62
-Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:structural" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 75
+Info (12129): Elaborating entity "DataDisplayManager" using architecture "A:structural" for hierarchy "DataDisplayManager:RomDisplay" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 88
 Info (12129): Elaborating entity "Bin7SegDec" using architecture "A:behavioral" for hierarchy "DataDisplayManager:RomDisplay|Bin7SegDec:signalDisplayProc" File: /home/maomv/repo/lsd-pf/project-files/DataDisplayManager.vhd Line: 28
-Info (12129): Elaborating entity "RamManager" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 85
+Info (12129): Elaborating entity "RamManager" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 98
 Info (12129): Elaborating entity "CleanTriangSignalRAM256x8" using architecture "A:behavioral" for hierarchy "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM" File: /home/maomv/repo/lsd-pf/project-files/RamManager.vhd Line: 37
-Info (12129): Elaborating entity "RegisterBank" using architecture "A:behavioral" for hierarchy "RegisterBank:DataBank" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 105
-Warning (10492): VHDL Process Statement warning at RegisterBank.vhd(16): signal "clock" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/maomv/repo/lsd-pf/project-files/RegisterBank.vhd Line: 16
-Info (12129): Elaborating entity "ArithmeticUnit" using architecture "A:behavioral" for hierarchy "ArithmeticUnit:Calculation" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 117
-Info (12129): Elaborating entity "ControlUnit" using architecture "A:behavioral" for hierarchy "ControlUnit:StateController" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 128
+Info (12129): Elaborating entity "RegisterBank" using architecture "A:behavioral" for hierarchy "RegisterBank:DataBank" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 119
+Info (12129): Elaborating entity "ArithmeticUnit" using architecture "A:behavioral" for hierarchy "ArithmeticUnit:Calculation" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 131
+Info (12129): Elaborating entity "ControlUnit" using architecture "A:behavioral" for hierarchy "ControlUnit:StateController" File: /home/maomv/repo/lsd-pf/project-files/FiltroMediaMovel.vhd Line: 143
 Warning (276020): Inferred RAM node "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "RamManager:RamManagment|CleanTriangSignalRAM256x8:CleanRAM|s_Memory_rtl_0" 
@@ -1038,15 +1054,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1291 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1288 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 56 output pins
-    Info (21061): Implemented 1222 logic cells
+    Info (21061): Implemented 1219 logic cells
     Info (21064): Implemented 8 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 977 megabytes
-    Info: Processing ended: Tue Jun 21 16:59:59 2022
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:27
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 18 warnings
+    Info: Peak virtual memory: 978 megabytes
+    Info: Processing ended: Wed Jun 22 02:04:54 2022
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:22
 
 
