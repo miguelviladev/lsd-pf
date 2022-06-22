@@ -1,5 +1,5 @@
 Fitter report for FiltroMediaMovel
-Wed Jun 22 02:05:10 2022
+Wed Jun 22 03:26:12 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -70,7 +70,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Wed Jun 22 02:05:10 2022       ;
+; Fitter Status                      ; Successful - Wed Jun 22 03:26:12 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; FiltroMediaMovel                            ;
 ; Top-level Entity Name              ; FiltroMediaMovel                            ;
@@ -163,7 +163,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.0%      ;
+;     Processor 2            ;   0.9%      ;
 +----------------------------+-------------+
 
 
@@ -2822,20 +2822,20 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
     Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X58_Y24 to location X68_Y36
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
 Info (11888): Total time spent on timing analysis during the Fitter is 0.30 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file /home/maomv/repo/lsd-pf/project-files/output_files/FiltroMediaMovel.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 463 warnings
-    Info: Peak virtual memory: 1424 megabytes
-    Info: Processing ended: Wed Jun 22 02:05:11 2022
+    Info: Peak virtual memory: 1423 megabytes
+    Info: Processing ended: Wed Jun 22 03:26:13 2022
     Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:20
 
 
 +----------------------------+
